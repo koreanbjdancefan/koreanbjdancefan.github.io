@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Korean BJ Dance Fan</title>
+    <meta name="description" content="Introducing Korean BJ (Broadcast Jockeys) dancers and streamers">
+    
+    <!-- Font Awesome for social icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Google Translate -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'en,ko,ja,zh-CN,zh-TW',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #00f2fe 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            color: #fff;
+            padding: 20px;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            padding: 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        .translate-wrapper {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 10px 15px;
+            border-radius: 20px;
+        }
+
+        .logo {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(45deg, #fff, #ffd1dc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .tagline {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            opacity: 0.9;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .multilingual-text {
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .multilingual-text p {
+            margin: 8px 0;
+            font-size: 1.1em;
+            font-weight: 500;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+            opacity: 0.95;
+        }
+
+        .telegram-desc {
+            font-size: 0.75em;
+            line-height: 1.5;
+            opacity: 0.95;
+            font-weight: 400;
+        }
+
+        .telegram-desc p {
+            margin: 3px 0;
+        }
+
+        .cta-text {
+            font-size: 1.3em;
+            margin-bottom: 20px;
+            font-weight: 600;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        .social-links {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px 30px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 15px;
+            text-decoration: none;
+            color: #fff;
+            font-size: 1.1em;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .social-btn:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .social-btn.telegram {
+            border-color: #0088cc;
+            border-width: 3px;
+            padding: 25px 30px;
+            font-size: 1.3em;
+            background: rgba(0, 136, 204, 0.3);
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        .social-btn.telegram:hover {
+            background: rgba(0, 136, 204, 0.5);
+            transform: translateY(-8px) scale(1.02);
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                box-shadow: 0 4px 15px rgba(0, 136, 204, 0.4);
+            }
+            50% {
+                box-shadow: 0 8px 30px rgba(0, 136, 204, 0.8);
+            }
+        }
+
+        .social-btn.youtube {
+            border-color: #FF0000;
+        }
+
+        .social-btn.youtube:hover {
+            background: rgba(255, 0, 0, 0.3);
+        }
+
+        .social-btn.tiktok {
+            border-color: #000000;
+        }
+
+        .social-btn.tiktok:hover {
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .social-btn.instagram {
+            border-color: #E1306C;
+        }
+
+        .social-btn.instagram:hover {
+            background: rgba(225, 48, 108, 0.3);
+        }
+
+        .social-icon {
+            font-size: 1.5em;
+            margin-right: 12px;
+        }
+
+        .other-platforms {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        footer {
+            margin-top: 30px;
+            font-size: 0.9em;
+            opacity: 0.7;
+        }
+
+        /* Mobile responsive */
+        @media (max-width: 600px) {
+            .container {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .tagline {
+                font-size: 1em;
+            }
+
+            .multilingual-text p {
+                font-size: 0.95em;
+            }
+
+            .cta-text {
+                font-size: 1.1em;
+            }
+
+            .other-platforms {
+                grid-template-columns: 1fr;
+            }
+
+            .logo {
+                width: 150px;
+                height: 150px;
+            }
+
+            .translate-wrapper {
+                position: static;
+                margin-bottom: 20px;
+            }
+
+            .social-btn.telegram {
+                font-size: 1em;
+                padding: 20px 20px;
+            }
+
+            .telegram-desc {
+                font-size: 0.7em;
+            }
+        }
+
+        /* Google Translate styling */
+        #google_translate_element {
+            display: inline-block;
+        }
+
+        .goog-te-gadget {
+            color: #fff !important;
+            font-size: 0.9em;
+        }
+
+        .goog-te-gadget-simple {
+            background-color: transparent !important;
+            border: none !important;
+            padding: 0 !important;
+        }
+
+        .goog-te-gadget-simple .goog-te-menu-value span {
+            color: #fff !important;
+        }
+
+        .goog-te-gadget-simple .goog-te-menu-value span:hover {
+            color: #ffd1dc !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="translate-wrapper">
+        <div id="google_translate_element"></div>
+    </div>
+
+    <div class="container">
+        <div class="logo">
+            <img src="KBJFAN.jpg" alt="KBJ Fan Logo">
+        </div>
+
+        <h1>Korean BJ Dance Fan</h1>
+        <p class="tagline">Introducing Korean BJ (Broadcast Jockeys) Dancers</p>
+        
+        <div class="multilingual-text">
+            <p>한국의 BJ의 동영상을 본다면 여기♡</p>
+            <p>韓国のBJの動画を見るならここ♡</p>
+            <p>If you want to watch Korean BJ videos, click here♡</p>
+            <p>點這裡觀看韓國BJ影片♡</p>
+        </div>
+
+        <p class="cta-text">🔥 Join our Telegram for exclusive content!</p>
+
+        <div class="social-links">
+            <a href="https://t.me/kbjdf_e" class="social-btn telegram" target="_blank" rel="noopener">
+                <div style="display: flex; flex-direction: column; align-items: center; width: 100%;">
+                    <div style="display: flex; align-items: center; margin-bottom: 8px;">
+                        <i class="fab fa-telegram social-icon"></i>
+                        <span style="font-size: 1.2em; font-weight: 700;">Join Telegram Channel</span>
+                    </div>
+                    <div class="telegram-desc">
+                        <p>다른 SNS에서는 볼 수 없는 특별한 영상※</p>
+                        <p>他のSNSでは見られない特別な動画※</p>
+                        <p>Special videos that can't be seen on other SNS※</p>
+                        <p>其他社群媒體看不到的特別影片※</p>
+                    </div>
+                </div>
+            </a>
+
+            <div class="other-platforms">
+                <a href="https://www.youtube.com/channel/" class="social-btn youtube" target="_blank" rel="noopener">
+                    <i class="fab fa-youtube social-icon"></i>
+                    YouTube
+                </a>
+
+                <a href="https://www.tiktok.com/@kbj.dance.fan" class="social-btn tiktok" target="_blank" rel="noopener">
+                    <i class="fab fa-tiktok social-icon"></i>
+                    TikTok
+                </a>
+
+                <a href="https://www.instagram.com/koreanbj_dance/" class="social-btn instagram" target="_blank" rel="noopener">
+                    <i class="fab fa-instagram social-icon"></i>
+                    Instagram
+                </a>
+            </div>
+        </div>
+
+        <footer>
+            © 2025 Korean BJ Dance Fan. All rights reserved.
+        </footer>
+    </div>
+</body>
+</html>
