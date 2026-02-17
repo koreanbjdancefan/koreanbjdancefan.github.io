@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KBJDFAN - Welcome!</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 500px;
+            text-align: center;
+        }
+        .success-icon {
+            font-size: 5em;
+            margin-bottom: 20px;
+            animation: bounce 1s ease infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            background: linear-gradient(90deg, #4ade80, #22d3ee);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .subtitle {
+            color: #aaa;
+            font-size: 1.1em;
+            margin-bottom: 40px;
+        }
+        
+        .card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        .card h2 {
+            margin-bottom: 25px;
+            font-size: 1.3em;
+        }
+        .steps {
+            text-align: left;
+        }
+        .step {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        .step-number {
+            width: 35px;
+            height: 35px;
+            background: linear-gradient(135deg, #ff6b6b, #feca57);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        .step-content {
+            flex: 1;
+        }
+        .step-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .step-desc {
+            color: #aaa;
+            font-size: 0.9em;
+        }
+        .step-code {
+            background: rgba(0,0,0,0.3);
+            padding: 8px 15px;
+            border-radius: 8px;
+            font-family: monospace;
+            margin-top: 8px;
+            display: inline-block;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(135deg, #0088cc, #00aced);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: all 0.3s;
+            margin-bottom: 15px;
+        }
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0,136,204,0.3);
+        }
+        .btn-icon {
+            margin-right: 8px;
+        }
+        
+        .note {
+            background: rgba(254,202,87,0.1);
+            border: 1px solid rgba(254,202,87,0.3);
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #feca57;
+        }
+        
+        .lang-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+        .lang-tab {
+            padding: 8px 16px;
+            background: rgba(255,255,255,0.1);
+            border: none;
+            border-radius: 20px;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.9em;
+        }
+        .lang-tab.active {
+            background: #feca57;
+            color: #1a1a2e;
+        }
+        
+        footer {
+            margin-top: 30px;
+            color: #666;
+            font-size: 0.9em;
+        }
+        footer a {
+            color: #feca57;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Language tabs -->
+        <div class="lang-tabs">
+            <button class="lang-tab active" onclick="setLang('en')">EN</button>
+            <button class="lang-tab" onclick="setLang('ja')">日本語</button>
+            <button class="lang-tab" onclick="setLang('ko')">한국어</button>
+            <button class="lang-tab" onclick="setLang('zh')">中文</button>
+        </div>
+        
+        <div class="success-icon">✅</div>
+        <h1 data-en="Thank You!" data-ja="ありがとうございます！" data-ko="감사합니다!" data-zh="謝謝您！">Thank You!</h1>
+        <p class="subtitle" data-en="Your payment was successful" data-ja="お支払いが完了しました" data-ko="결제가 완료되었습니다" data-zh="您的付款已成功">Your payment was successful</p>
+        
+        <div class="card">
+            <h2 data-en="📱 Get Your Channel Access" data-ja="📱 チャンネルアクセスを取得" data-ko="📱 채널 접근 권한 받기" data-zh="📱 獲取頻道訪問權限">📱 Get Your Channel Access</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <div class="step-title" data-en="Open Telegram Bot" data-ja="Telegram Botを開く" data-ko="Telegram Bot 열기" data-zh="打開 Telegram Bot">Open Telegram Bot</div>
+                        <div class="step-desc" data-en="Click the button below or search @KBJDFAN_bot" data-ja="下のボタンをクリックするか @KBJDFAN_bot を検索" data-ko="아래 버튼을 클릭하거나 @KBJDFAN_bot 검색" data-zh="點擊下方按鈕或搜索 @KBJDFAN_bot">Click the button below or search @KBJDFAN_bot</div>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <div class="step-title" data-en="Send verify command" data-ja="認証コマンドを送信" data-ko="인증 명령어 전송" data-zh="發送驗證命令">Send verify command</div>
+                        <div class="step-code">/verify</div>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <div class="step-title" data-en="Enter your email" data-ja="メールアドレスを入力" data-ko="이메일 주소 입력" data-zh="輸入您的郵箱">Enter your email</div>
+                        <div class="step-desc" data-en="Use the same email you used for payment" data-ja="支払いに使用したメールアドレスを入力" data-ko="결제에 사용한 이메일 주소 입력" data-zh="輸入付款時使用的郵箱地址">Use the same email you used for payment</div>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <div class="step-title" data-en="Get invite links!" data-ja="招待リンクを取得！" data-ko="초대 링크 받기!" data-zh="獲取邀請連結！">Get invite links!</div>
+                        <div class="step-desc" data-en="You'll receive links to all your channels" data-ja="全チャンネルのリンクが届きます" data-ko="모든 채널 링크를 받게 됩니다" data-zh="您將收到所有頻道的連結">You'll receive links to all your channels</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <a href="https://t.me/KBJDFAN_bot" class="btn">
+            <span class="btn-icon">📱</span>
+            <span data-en="Open @KBJDFAN_bot" data-ja="@KBJDFAN_bot を開く" data-ko="@KBJDFAN_bot 열기" data-zh="打開 @KBJDFAN_bot">Open @KBJDFAN_bot</span>
+        </a>
+        
+        <div class="note">
+            <strong>💡 </strong>
+            <span data-en="If you don't receive links within 5 minutes, please contact support via /support command in the bot." data-ja="5分以内にリンクが届かない場合は、Botの /support コマンドでサポートにお問い合わせください。" data-ko="5분 이내에 링크를 받지 못하면 Bot의 /support 명령어로 문의해 주세요." data-zh="如果5分鐘內未收到連結，請通過Bot的 /support 命令聯繫支援。">If you don't receive links within 5 minutes, please contact support via /support command in the bot.</span>
+        </div>
+        
+        <footer>
+            <p><a href="vip.html" data-en="← Back to Plans" data-ja="← プラン一覧に戻る" data-ko="← 플랜 목록으로 돌아가기" data-zh="← 返回方案列表">← Back to Plans</a></p>
+        </footer>
+    </div>
+    
+    <script>
+        function setLang(lang) {
+            // Update active tab
+            document.querySelectorAll('.lang-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // Update all translatable elements
+            document.querySelectorAll('[data-' + lang + ']').forEach(el => {
+                el.textContent = el.getAttribute('data-' + lang);
+            });
+            
+            // Save preference
+            localStorage.setItem('lang', lang);
+        }
+        
+        // Load saved language
+        const savedLang = localStorage.getItem('lang') || 'en';
+        document.querySelectorAll('.lang-tab').forEach(tab => {
+            if ((savedLang === 'en' && tab.textContent === 'EN') ||
+                (savedLang === 'ja' && tab.textContent === '日本語') ||
+                (savedLang === 'ko' && tab.textContent === '한국어') ||
+                (savedLang === 'zh' && tab.textContent === '中文')) {
+                tab.classList.add('active');
+            } else {
+                tab.classList.remove('active');
+            }
+        });
+        document.querySelectorAll('[data-' + savedLang + ']').forEach(el => {
+            el.textContent = el.getAttribute('data-' + savedLang);
+        });
+    </script>
+</body>
+</html>

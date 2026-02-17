@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KBJDFAN - VIP Membership</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #fff;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        header {
+            text-align: center;
+            padding: 30px 0;
+        }
+        .logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #ff6b6b, #feca57);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .subtitle {
+            color: #aaa;
+            font-size: 1.1em;
+        }
+        
+        /* Plans */
+        .plans {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+        .plan {
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+        .plan:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255,255,255,0.2);
+        }
+        .plan.popular {
+            border-color: #feca57;
+            background: rgba(254,202,87,0.1);
+        }
+        .plan-badge {
+            background: #feca57;
+            color: #1a1a2e;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+        .plan-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+        .plan-name {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .plan-price {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .plan-price span {
+            font-size: 0.4em;
+            color: #aaa;
+        }
+        .plan-channels {
+            color: #feca57;
+            font-size: 1.1em;
+            margin-bottom: 20px;
+        }
+        .plan-subprice {
+            font-size: 0.85em;
+            color: #888;
+            margin-bottom: 10px;
+        }
+        .plan-features {
+            text-align: left;
+            margin-bottom: 25px;
+        }
+        .plan-features li {
+            list-style: none;
+            padding: 8px 0;
+            color: #ccc;
+            font-size: 0.95em;
+        }
+        .plan-features li::before {
+            content: "✓ ";
+            color: #4ade80;
+        }
+        
+        /* Payment buttons */
+        .payment-section {
+            margin-top: 20px;
+        }
+        .payment-label {
+            font-size: 0.85em;
+            color: #888;
+            margin-bottom: 10px;
+        }
+        .payment-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .btn {
+            display: block;
+            padding: 12px 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        .btn-fanbox {
+            background: #00c7b7;
+            color: #fff;
+        }
+        .btn-patreon {
+            background: #ff424d;
+            color: #fff;
+        }
+        .btn-crypto {
+            background: #0052ff;
+            color: #fff;
+        }
+        .btn:hover {
+            transform: scale(1.02);
+            opacity: 0.9;
+        }
+        
+        /* Channel list */
+        .channels {
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 40px 0;
+        }
+        .channels h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 1.8em;
+        }
+        .channel-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+        }
+        .channel {
+            background: rgba(255,255,255,0.05);
+            padding: 15px;
+            border-radius: 10px;
+        }
+        .channel-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .channel-desc {
+            font-size: 0.9em;
+            color: #aaa;
+        }
+        .channel-tier {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 5px;
+            font-size: 0.75em;
+            margin-top: 8px;
+        }
+        .tier-entry { background: #4ade80; color: #000; }
+        .tier-vip { background: #feca57; color: #000; }
+        .tier-premier { background: #a855f7; color: #fff; }
+        
+        /* FAQ */
+        .faq {
+            margin: 40px 0;
+        }
+        .faq h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 1.8em;
+        }
+        .faq-item {
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .faq-question:hover {
+            background: rgba(255,255,255,0.05);
+        }
+        .faq-answer {
+            padding: 0 20px 20px;
+            color: #aaa;
+            line-height: 1.6;
+        }
+        
+        /* How to join */
+        .how-to {
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 40px 0;
+        }
+        .how-to h2 {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        .step {
+            text-align: center;
+            padding: 20px;
+        }
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #ff6b6b, #feca57);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        .step-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .step-desc {
+            font-size: 0.9em;
+            color: #aaa;
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            color: #666;
+        }
+        footer a {
+            color: #feca57;
+            text-decoration: none;
+        }
+        
+        /* Language tabs */
+        .lang-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+        .lang-tab {
+            padding: 8px 16px;
+            background: rgba(255,255,255,0.1);
+            border: none;
+            border-radius: 20px;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .lang-tab.active {
+            background: #feca57;
+            color: #1a1a2e;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="KBJFAN.jpg" alt="KBJDFAN" class="logo">
+            <h1>KBJDFAN</h1>
+            <p class="subtitle">Korean BJ Dance Fan - Premium Content</p>
+        </header>
+        
+        <!-- Language tabs -->
+        <div class="lang-tabs">
+            <button class="lang-tab active" onclick="setLang('en')">English</button>
+            <button class="lang-tab" onclick="setLang('ja')">日本語</button>
+            <button class="lang-tab" onclick="setLang('ko')">한국어</button>
+            <button class="lang-tab" onclick="setLang('zh')">中文</button>
+        </div>
+        
+        <!-- How to join -->
+        <div class="how-to">
+            <h2 data-en="🚀 How to Join" data-ja="🚀 参加方法" data-ko="🚀 참가 방법" data-zh="🚀 加入方法">🚀 How to Join</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-title" data-en="Choose Plan" data-ja="プラン選択" data-ko="플랜 선택" data-zh="選擇方案">Choose Plan</div>
+                    <div class="step-desc" data-en="Pick your preferred plan below" data-ja="下からお好みのプランを選択" data-ko="아래에서 원하는 플랜 선택" data-zh="在下方選擇您喜歡的方案">Pick your preferred plan below</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-title" data-en="Pay" data-ja="支払い" data-ko="결제" data-zh="付款">Pay</div>
+                    <div class="step-desc" data-en="Fanbox, Patreon, or Crypto" data-ja="Fanbox、Patreon、または仮想通貨" data-ko="Fanbox, Patreon 또는 암호화폐" data-zh="Fanbox、Patreon 或加密貨幣">Fanbox, Patreon, or Crypto</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-title" data-en="Verify" data-ja="認証" data-ko="인증" data-zh="驗證">Verify</div>
+                    <div class="step-desc" data-en="@KBJDFAN_bot → /verify" data-ja="@KBJDFAN_bot で /verify" data-ko="@KBJDFAN_bot 에서 /verify" data-zh="@KBJDFAN_bot 輸入 /verify">@KBJDFAN_bot → /verify</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-title" data-en="Enjoy!" data-ja="視聴開始！" data-ko="시청 시작!" data-zh="開始觀看！">Enjoy!</div>
+                    <div class="step-desc" data-en="Get invite links instantly" data-ja="招待リンクを即時取得" data-ko="초대 링크 즉시 수신" data-zh="立即獲得邀請連結">Get invite links instantly</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Plans -->
+        <div class="plans">
+            <!-- Entry -->
+            <div class="plan">
+                <div class="plan-icon">🔰</div>
+                <div class="plan-name">Entry</div>
+                <div class="plan-price">$3<span>/month</span></div>
+                <div class="plan-subprice">Fanbox: ¥500</div>
+                <div class="plan-channels" data-en="2 Channels" data-ja="2チャンネル" data-ko="2채널" data-zh="2頻道">2 Channels</div>
+                <ul class="plan-features">
+                    <li>【KBJDF】Dance</li>
+                    <li>【KBJDF】ChineseDance</li>
+                </ul>
+                <div class="payment-section">
+                    <div class="payment-buttons">
+                        <a href="https://kbjdf.fanbox.cc/" target="_blank" class="btn btn-fanbox">Fanbox</a>
+                        <a href="https://www.patreon.com/c/kbjdf" target="_blank" class="btn btn-patreon">Patreon</a>
+                        <a href="https://commerce.coinbase.com/checkout/cd68a5fe-996d-447c-95e4-8e772aecceda" target="_blank" class="btn btn-crypto">₿ Crypto ($3)</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- VIP -->
+            <div class="plan popular">
+                <div class="plan-badge" data-en="★ POPULAR" data-ja="★ 人気" data-ko="★ 인기" data-zh="★ 熱門">★ POPULAR</div>
+                <div class="plan-icon">💎</div>
+                <div class="plan-name">VIP</div>
+                <div class="plan-price">$8<span>/month</span></div>
+                <div class="plan-subprice">Fanbox: ¥1,200</div>
+                <div class="plan-channels" data-en="6 Channels" data-ja="6チャンネル" data-ko="6채널" data-zh="6頻道">6 Channels</div>
+                <ul class="plan-features">
+                    <li data-en="All Entry channels +" data-ja="Entry全て +" data-ko="Entry 전부 +" data-zh="Entry 全部 +">All Entry channels +</li>
+                    <li>【KBJDF】NudeDance 🔥</li>
+                    <li>【KBJDF】CrewDance</li>
+                    <li>【KBJDF】Short Dance</li>
+                    <li>【KBJDF】New and old</li>
+                </ul>
+                <div class="payment-section">
+                    <div class="payment-buttons">
+                        <a href="https://kbjdf.fanbox.cc/" target="_blank" class="btn btn-fanbox">Fanbox</a>
+                        <a href="https://www.patreon.com/c/kbjdf" target="_blank" class="btn btn-patreon">Patreon</a>
+                        <a href="https://commerce.coinbase.com/checkout/12ec6169-e302-4685-9aba-afbf35274fa8" target="_blank" class="btn btn-crypto">₿ Crypto ($8)</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Premier -->
+            <div class="plan">
+                <div class="plan-icon">👑</div>
+                <div class="plan-name">Premier</div>
+                <div class="plan-price">$12<span>/month</span></div>
+                <div class="plan-subprice">Fanbox: ¥1,800</div>
+                <div class="plan-channels" data-en="All 10 Channels" data-ja="全10チャンネル" data-ko="전 10채널" data-zh="全10頻道">All 10 Channels</div>
+                <ul class="plan-features">
+                    <li data-en="All VIP channels +" data-ja="VIP全て +" data-ko="VIP 전부 +" data-zh="VIP 全部 +">All VIP channels +</li>
+                    <li>【KBJDF】almighty ⚡</li>
+                    <li>【KBJDF】Dance clippings</li>
+                    <li>【KBJDF】CrewDance Full</li>
+                    <li>【KBJDF】strage 💬</li>
+                </ul>
+                <div class="payment-section">
+                    <div class="payment-buttons">
+                        <a href="https://kbjdf.fanbox.cc/" target="_blank" class="btn btn-fanbox">Fanbox</a>
+                        <a href="https://www.patreon.com/c/kbjdf" target="_blank" class="btn btn-patreon">Patreon</a>
+                        <a href="https://commerce.coinbase.com/checkout/2b7fbba9-e09e-4a18-9fed-020fb191b25f" target="_blank" class="btn btn-crypto">₿ Crypto ($12)</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Channel details -->
+        <div class="channels">
+            <h2 data-en="📺 Channel Details" data-ja="📺 チャンネル詳細" data-ko="📺 채널 상세" data-zh="📺 頻道詳情">📺 Channel Details</h2>
+            <div class="channel-grid">
+                <div class="channel">
+                    <div class="channel-name">【KBJDF】Dance</div>
+                    <div class="channel-desc" data-en="Curated popular Korean BJ content" data-ja="韓国人気BJ厳選コンテンツ" data-ko="한국 인기 BJ 엄선 콘텐츠" data-zh="精選韓國人氣BJ內容">Curated popular Korean BJ content</div>
+                    <span class="channel-tier tier-entry">Entry+</span>
+                </div>
+                <div class="channel">
+                    <div class="channel-name">【KBJDF】ChineseDance</div>
+                    <div class="channel-desc" data-en="Chinese BJ dance & nude content" data-ja="中国BJダンス＆ヌードコンテンツ" data-ko="중국 BJ 댄스 & 누드 콘텐츠" data-zh="中國BJ舞蹈和裸舞內容">Chinese BJ dance & nude content</div>
+                    <span class="channel-tier tier-entry">Entry+</span>
+                </div>
+                <div class="channel">
+                    <div class="channel-name">【KBJDF】NudeDance 🔥</div>
+                    <div class="channel-desc" data-en="Korean popular BJ nude streams" data-ja="韓国人気BJヌード配信" data-ko="한국 인기 BJ 누드 방송" data-zh="韓國人氣BJ裸舞直播">Korean popular BJ nude streams</div>
+                    <span class="channel-tier tier-vip">VIP+</span>
+                </div>
+                <div class="channel">
+                    <div class="channel-name">【KBJDF】CrewDance</div>
+                    <div class="channel-desc" data-en="Jinricp, Mscrew33, Pandaclass group" data-ja="Jinricp、Mscrew33、Pandaclass団体" data-ko="Jinricp, Mscrew33, Pandaclass 단체" data-zh="Jinricp、Mscrew33、Pandaclass團體">Jinricp, Mscrew33, Pandaclass group</div>
+                    <span class="channel-tier tier-vip">VIP+</span>
+                </div>
+                <div class="channel">
+                    <div class="channel-name">【KBJDF】Short Dance</div>
+                    <div class="channel-desc" data-en="Chinese sexy & cosplay short videos" data-ja="中国セクシー＆コスプレショート" data-ko="중국 섹시 & 코스프레 숏폼" data-zh="中國性感和Cosplay短影片">Chinese sexy & cosplay short videos</div>
+                    <span class="channel-tier tier-vip">VIP+</span>
+                </div>
+                <div class="channel">
+                    <div class="channel-name">【KBJDF】New and old</div>
+                    <div class="channel-desc" data-en="Latest + classic archives" data-ja="最新＋過去の名作" data-ko="최신 + 과거 명작" data-zh="最新和經典存檔">Latest + classic archives</div>
+                    <span class="channel-tier tier-vip">VIP+</span>
+                </div>
+                <div class="channel">
+                    <div class="channel-name">【KBJDF】almighty ⚡</div>
+                    <div class="channel-desc" data-en="#1 uploads! Dance & nude streams" data-ja="投稿数No.1！ダンス＆ヌード" data-ko="업로드 No.1! 댄스 & 누드" data-zh="更新數No.1！舞蹈和裸舞">#1 uploads! Dance & nude streams</div>
+                    <span class="channel-tier tier-premier">Premier</span>
+                </div>
+                <div class="channel">
+                    <div class="channel-name">【KBJDF】Dance clippings</div>
+                    <div class="channel-desc" data-en="Long compilation videos" data-ja="ロング動画まとめ" data-ko="롱버전 편집 영상" data-zh="長影片合集">Long compilation videos</div>
+                    <span class="channel-tier tier-premier">Premier</span>
+                </div>
+                <div class="channel">
+                    <div class="channel-name">【KBJDF】CrewDance Full</div>
+                    <div class="channel-desc" data-en="Group streams in full length" data-ja="団体配信フル尺" data-ko="단체 방송 풀버전" data-zh="團體直播完整版">Group streams in full length</div>
+                    <span class="channel-tier tier-premier">Premier</span>
+                </div>
+                <div class="channel">
+                    <div class="channel-name">【KBJDF】strage 💬</div>
+                    <div class="channel-desc" data-en="Requests accepted!" data-ja="リクエスト受付中！" data-ko="리퀘스트 접수 중!" data-zh="接受點播請求！">Requests accepted!</div>
+                    <span class="channel-tier tier-premier">Premier</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- FAQ -->
+        <div class="faq">
+            <h2>❓ FAQ</h2>
+            <div class="faq-item">
+                <div class="faq-question" data-en="Which payment method should I use?" data-ja="どの支払い方法がいい？" data-ko="어떤 결제 방법이 좋을까요?" data-zh="應該使用哪種付款方式？">Which payment method should I use?</div>
+                <div class="faq-answer" data-en="Japan/Korea/Taiwan: Fanbox (credit card, convenience store, carrier billing). International: Patreon or Crypto." data-ja="日本・韓国・台湾：Fanbox（クレカ、コンビニ、キャリア決済）。海外：PatreonまたはCrypto。" data-ko="일본/한국/대만: Fanbox (신용카드, 편의점, 통신사 결제). 해외: Patreon 또는 Crypto." data-zh="日本/韓國/台灣：Fanbox（信用卡、便利店、電信付款）。海外：Patreon 或 Crypto。">Japan/Korea/Taiwan: Fanbox (credit card, convenience store, carrier billing). International: Patreon or Crypto.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" data-en="How do I get channel access after payment?" data-ja="支払い後、どうやってチャンネルにアクセスする？" data-ko="결제 후 채널 접근은 어떻게 하나요?" data-zh="付款後如何獲得頻道訪問權限？">How do I get channel access after payment?</div>
+                <div class="faq-answer" data-en="1. Go to @KBJDFAN_bot on Telegram. 2. Send /verify. 3. Enter your payment email. 4. Receive invite links!" data-ja="1. Telegramで@KBJDFAN_botを開く。2. /verifyを送信。3. 支払いに使ったメールアドレスを入力。4. 招待リンクを受け取る！" data-ko="1. Telegram에서 @KBJDFAN_bot 열기. 2. /verify 전송. 3. 결제 이메일 입력. 4. 초대 링크 수신!" data-zh="1. 在Telegram打開@KBJDFAN_bot。2. 發送/verify。3. 輸入付款郵箱。4. 收到邀請連結！">1. Go to @KBJDFAN_bot on Telegram. 2. Send /verify. 3. Enter your payment email. 4. Receive invite links!</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" data-en="Can I upgrade my plan later?" data-ja="後からプランをアップグレードできる？" data-ko="나중에 플랜을 업그레이드할 수 있나요?" data-zh="可以之後升級方案嗎？">Can I upgrade my plan later?</div>
+                <div class="faq-answer" data-en="Yes! Just subscribe to a higher tier. Use /upgrade in the bot for details." data-ja="はい！上位プランに登録するだけ。Botで/upgradeを使って詳細確認。" data-ko="네! 상위 플랜을 구독하면 됩니다. Bot에서 /upgrade로 상세 확인." data-zh="可以！只需訂閱更高級別。在Bot中使用/upgrade查看詳情。">Yes! Just subscribe to a higher tier. Use /upgrade in the bot for details.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" data-en="What happens if I cancel?" data-ja="解約したらどうなる？" data-ko="해지하면 어떻게 되나요?" data-zh="取消訂閱會怎樣？">What happens if I cancel?</div>
+                <div class="faq-answer" data-en="You'll be automatically removed from channels at the end of your billing period." data-ja="請求期間の終了時に自動的にチャンネルから削除されます。" data-ko="결제 기간 종료 시 자동으로 채널에서 삭제됩니다." data-zh="在計費期結束時會自動從頻道中移除。">You'll be automatically removed from channels at the end of your billing period.</div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>💬 Support: <a href="https://t.me/KBJDFAN_bot">@KBJDFAN_bot</a></p>
+            <p style="margin-top: 10px;">© 2025 KBJDFAN</p>
+        </footer>
+    </div>
+    
+    <script>
+        function setLang(lang) {
+            // Update active tab
+            document.querySelectorAll('.lang-tab').forEach(tab => {
+                tab.classList.remove('active');
+                if (tab.textContent.includes(lang === 'en' ? 'English' : lang === 'ja' ? '日本語' : lang === 'ko' ? '한국어' : '中文')) {
+                    tab.classList.add('active');
+                }
+            });
+            
+            // Update all translatable elements
+            document.querySelectorAll('[data-' + lang + ']').forEach(el => {
+                el.textContent = el.getAttribute('data-' + lang);
+            });
+            
+            // Save preference
+            localStorage.setItem('lang', lang);
+        }
+        
+        // Load saved language
+        const savedLang = localStorage.getItem('lang') || 'en';
+        setLang(savedLang);
+    </script>
+</body>
+</html>
