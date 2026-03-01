@@ -77,7 +77,7 @@
         }
 
         .container {
-            max-width: 640px;
+            max-width: 900px;
             width: 100%;
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
@@ -145,7 +145,7 @@
         /* ── Stats Counter Strip ── */
         .stats-strip {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 10px;
             margin-bottom: 25px;
             padding: 20px 10px;
@@ -169,75 +169,6 @@
             opacity: 0.8;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-        }
-
-        /* ── YouTube Preview ── */
-        .video-preview {
-            margin-bottom: 25px;
-        }
-
-        .video-preview h2 {
-            font-size: 1.2em;
-            margin-bottom: 12px;
-            opacity: 0.9;
-        }
-
-        .youtube-embed {
-            position: relative;
-            width: 100%;
-            padding-bottom: 56.25%;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-            margin-bottom: 12px;
-        }
-
-        .youtube-embed iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        .latest-videos {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 8px;
-        }
-
-        .latest-video-card {
-            position: relative;
-            border-radius: 8px;
-            overflow: hidden;
-            cursor: pointer;
-            transition: transform 0.2s;
-        }
-
-        .latest-video-card:hover {
-            transform: scale(1.05);
-        }
-
-        .latest-video-card img {
-            width: 100%;
-            aspect-ratio: 16/9;
-            object-fit: cover;
-            display: block;
-        }
-
-        .latest-video-card .video-title {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 4px 6px;
-            background: linear-gradient(transparent, rgba(0,0,0,0.8));
-            font-size: 0.6em;
-            line-height: 1.3;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
         }
 
         /* ── Social Links ── */
@@ -312,6 +243,18 @@
 
         .telegram-desc p { margin: 3px 0; }
 
+        .cta-btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 25px;
+            background: rgba(255, 255, 255, 0.25);
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
         .social-icon {
             font-size: 1.5em;
             margin-right: 12px;
@@ -330,24 +273,6 @@
         .social-btn.tiktok:hover { background: rgba(0, 0, 0, 0.3); }
         .social-btn.instagram { border-color: #E1306C; }
         .social-btn.instagram:hover { background: rgba(225, 48, 108, 0.3); }
-
-        .btn-badge {
-            font-size: 0.55em;
-            background: rgba(255, 255, 255, 0.25);
-            padding: 2px 8px;
-            border-radius: 10px;
-            margin-left: 6px;
-            font-weight: 400;
-        }
-
-        .member-badge {
-            font-size: 0.5em;
-            background: rgba(255, 255, 255, 0.2);
-            padding: 3px 10px;
-            border-radius: 10px;
-            display: inline-block;
-            margin-top: 6px;
-        }
 
         /* ── Free vs VIP Comparison ── */
         .comparison {
@@ -433,7 +358,6 @@
             font-size: 1.3em;
             background: linear-gradient(135deg, rgba(254, 202, 87, 0.3), rgba(255, 107, 107, 0.3));
             animation: vipGlow 2s ease-in-out infinite;
-            margin-top: 20px;
         }
 
         .social-btn.vip:hover {
@@ -455,63 +379,122 @@
 
         .vip-desc p { margin: 3px 0; }
 
-        footer {
-            margin-top: 30px;
-            font-size: 0.9em;
-            opacity: 0.7;
-        }
-
-        /* ── SNS Embeds ── */
-        .sns-embeds {
+        /* ── SNS Embed Grid (YouTube / TikTok / Instagram) ── */
+        .embed-section {
             margin-bottom: 25px;
         }
 
-        .sns-embed-grid {
+        .embed-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 12px;
+            gap: 15px;
         }
 
-        .sns-embed-grid:has(.sns-embed-col:only-child),
-        .sns-embed-grid.single-col {
+        .embed-row.single-col {
             grid-template-columns: 1fr;
-            max-width: 350px;
+            max-width: 500px;
             margin: 0 auto;
         }
 
-        .sns-embed-col {
+        .embed-card {
             background: rgba(255, 255, 255, 0.08);
             border-radius: 12px;
             overflow: hidden;
         }
 
-        .sns-embed-header {
+        .embed-card-header {
             padding: 8px 12px;
             font-size: 0.85em;
             font-weight: 600;
             opacity: 0.9;
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
 
-        .sns-embed-frame {
-            width: 100%;
-            min-height: 400px;
+        .embed-card-body {
             position: relative;
+            width: 100%;
+            padding-bottom: 177%;  /* 9:16 vertical ratio */
+            overflow: hidden;
         }
 
-        .sns-embed-frame iframe {
-            width: 100%;
-            height: 100%;
+        .embed-card-body.yt-ratio {
+            padding-bottom: 56.25%;  /* 16:9 horizontal ratio */
+        }
+
+        .embed-card-body iframe {
             position: absolute;
             top: 0;
             left: 0;
+            width: 100%;
+            height: 100%;
             border: none;
         }
 
-        @media (max-width: 600px) {
-            .sns-embed-grid {
-                grid-template-columns: 1fr;
-            }
-            .sns-embed-frame { min-height: 500px; }
+        /* TikTok: blockquote embed, let embed.js handle sizing */
+        .embed-card-body.tiktok-body {
+            padding-bottom: 0;
+            position: static;
+            overflow: visible;
+        }
+
+        .embed-card-body.tiktok-body blockquote {
+            margin: 0 !important;
+            max-width: 100% !important;
+            min-width: 100% !important;
+        }
+
+        .embed-card-body.tiktok-body iframe {
+            position: static !important;
+            max-width: 100% !important;
+            min-width: 100% !important;
+        }
+
+        .latest-videos {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin-top: 8px;
+        }
+
+        .latest-video-card {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .latest-video-card:hover {
+            transform: scale(1.05);
+        }
+
+        .latest-video-card img {
+            width: 100%;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            display: block;
+        }
+
+        .latest-video-card .video-title {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 4px 6px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            font-size: 0.6em;
+            line-height: 1.3;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        footer {
+            margin-top: 30px;
+            font-size: 0.9em;
+            opacity: 0.7;
         }
 
         /* ── Counter Animation ── */
@@ -525,8 +508,8 @@
         }
 
         /* ── Mobile responsive ── */
-        @media (max-width: 600px) {
-            .container { padding: 30px 20px; }
+        @media (max-width: 700px) {
+            .container { padding: 30px 20px; max-width: 100%; }
             h1 { font-size: 2em; }
             .tagline { font-size: 1em; }
             .multilingual-text p { font-size: 0.95em; }
@@ -540,11 +523,19 @@
             .vip-desc { font-size: 0.7em; }
 
             .stats-strip {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: repeat(3, 1fr);
                 gap: 8px;
                 padding: 15px 10px;
             }
             .stat-number { font-size: 1.3em; }
+
+            .embed-row {
+                grid-template-columns: 1fr !important;
+            }
+
+            .embed-card-body {
+                padding-bottom: 120%;  /* shorter on mobile for less scrolling */
+            }
 
             .latest-videos { gap: 5px; }
             .latest-video-card .video-title { font-size: 0.5em; }
@@ -583,16 +574,12 @@
         <!-- Stats Counter Strip -->
         <div class="stats-strip" id="stats-strip" style="display:none;">
             <div class="stat-item">
-                <span class="stat-number" id="stat-subscribers">-</span>
-                <span class="stat-label">Subscribers</span>
-            </div>
-            <div class="stat-item">
                 <span class="stat-number" id="stat-videos">-</span>
                 <span class="stat-label">Videos</span>
             </div>
             <div class="stat-item">
                 <span class="stat-number" id="stat-bjs">-</span>
-                <span class="stat-label">BJs</span>
+                <span class="stat-label notranslate">BJS</span>
             </div>
             <div class="stat-item">
                 <span class="stat-number" id="stat-updated">Daily</span>
@@ -600,6 +587,7 @@
             </div>
         </div>
 
+        <!-- 1. Telegram CTA -->
         <p class="cta-text">Join our Telegram for exclusive content!</p>
 
         <div class="social-links">
@@ -615,84 +603,12 @@
                         <p>Special videos that can't be seen on other SNS&#8251;</p>
                         <p>&#20854;&#20182;&#31038;&#32676;&#23186;&#39636;&#30475;&#19981;&#21040;&#30340;&#29305;&#21029;&#24433;&#29255;&#8251;</p>
                     </div>
+                    <span class="cta-btn">Join Free Channel</span>
                 </div>
             </a>
-
-            <div class="other-platforms">
-                <a href="https://www.youtube.com/channel/UCFB2rlhoZymxH3K-ftuZw2A" class="social-btn youtube" target="_blank" rel="noopener">
-                    <i class="fab fa-youtube social-icon"></i>
-                    YouTube
-                </a>
-
-                <a href="https://www.tiktok.com/@kbj.dance.fan" class="social-btn tiktok" target="_blank" rel="noopener">
-                    <i class="fab fa-tiktok social-icon"></i>
-                    TikTok
-                </a>
-
-                <a href="https://www.instagram.com/koreanbj_dance/" class="social-btn instagram" target="_blank" rel="noopener">
-                    <i class="fab fa-instagram social-icon"></i>
-                    Instagram
-                </a>
-            </div>
         </div>
 
-        <!-- TikTok / Instagram Embeds -->
-        <div class="sns-embeds" id="sns-embeds" style="display:none;">
-            <div class="sns-embed-grid">
-                <div class="sns-embed-col" id="tiktok-embed-wrap" style="display:none;">
-                    <div class="sns-embed-header">
-                        <i class="fab fa-tiktok"></i> TikTok
-                    </div>
-                    <div class="sns-embed-frame" id="tiktok-embed"></div>
-                </div>
-                <div class="sns-embed-col" id="instagram-embed-wrap" style="display:none;">
-                    <div class="sns-embed-header">
-                        <i class="fab fa-instagram"></i> Instagram
-                    </div>
-                    <div class="sns-embed-frame" id="instagram-embed"></div>
-                </div>
-            </div>
-        </div>
-
-        <!-- YouTube Video Preview -->
-        <div class="video-preview">
-            <div class="youtube-embed">
-                <iframe
-                    src="https://www.youtube.com/embed/videoseries?list=UUFB2rlhoZymxH3K-ftuZw2A"
-                    title="Latest Videos"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen
-                    loading="lazy">
-                </iframe>
-            </div>
-            <div class="latest-videos" id="latest-videos"></div>
-        </div>
-
-        <!-- Free vs VIP Comparison -->
-        <div class="comparison">
-            <h2>Free vs VIP</h2>
-            <div class="comparison-grid">
-                <div class="comparison-col">
-                    <h3>Free Telegram</h3>
-                    <ul>
-                        <li>Daily highlights</li>
-                        <li>Selected clips</li>
-                        <li>1 channel</li>
-                    </ul>
-                </div>
-                <div class="comparison-col vip-col">
-                    <h3>VIP ($3/mo~)</h3>
-                    <ul>
-                        <li id="vip-videos">Full archive</li>
-                        <li id="vip-bjs">All BJs</li>
-                        <li>Up to 10 channels</li>
-                    </ul>
-                </div>
-            </div>
-            <a href="vip.html" class="comparison-cta">See VIP Plans</a>
-        </div>
-
-        <!-- VIP Membership Button -->
+        <!-- 2. VIP Membership -->
         <a href="vip.html" class="social-btn vip">
             <div style="display: flex; flex-direction: column; align-items: center; width: 100%;">
                 <div style="display: flex; align-items: center; margin-bottom: 8px;">
@@ -705,12 +621,85 @@
                     <p>Premium channels from $3/month&#8251;</p>
                     <p>&#39640;&#32026;&#38971;&#36947; &#27599;&#26376;$3&#36215;&#8251;</p>
                 </div>
+                <span class="cta-btn">View Plans</span>
             </div>
         </a>
 
-        <footer>
-            &copy; 2025 Korean BJ Dance Fan. All rights reserved.
-        </footer>
+        <!-- 3. Free vs VIP Comparison -->
+        <div class="comparison" style="margin-top: 25px;">
+            <h2>Free vs VIP</h2>
+            <div class="comparison-grid">
+                <div class="comparison-col">
+                    <h3>Free Telegram</h3>
+                    <ul>
+                        <li id="free-videos">1,200+ videos</li>
+                        <li>Daily highlights</li>
+                        <li>Selected clips</li>
+                        <li>1 channel</li>
+                    </ul>
+                </div>
+                <div class="comparison-col vip-col">
+                    <h3>VIP ($3/mo~)</h3>
+                    <ul>
+                        <li id="vip-videos">25,000+ full videos</li>
+                        <li id="vip-bjs"><span class="notranslate">400+ BJS</span> (Korean + Chinese)</li>
+                        <li>Up to 10 channels</li>
+                    </ul>
+                </div>
+            </div>
+            <a href="vip.html" class="comparison-cta">See VIP Plans</a>
+        </div>
+
+        <!-- 4. YouTube (full width) -->
+        <div class="embed-section">
+            <div class="embed-card" id="yt-embed-card">
+                <div class="embed-card-header">
+                    <i class="fab fa-youtube" style="color:#FF0000;"></i> YouTube
+                </div>
+                <div class="embed-card-body yt-ratio" id="yt-embed-body">
+                    <!-- Filled by JS with latest video from stats.json -->
+                </div>
+                <div class="latest-videos" id="latest-videos"></div>
+            </div>
+        </div>
+
+        <!-- 5. TikTok + Instagram (side by side) -->
+        <div class="embed-section">
+            <div class="embed-row" id="embed-row-sns">
+                <div class="embed-card" id="tt-embed-card" style="display:none;">
+                    <div class="embed-card-header">
+                        <i class="fab fa-tiktok"></i> TikTok
+                    </div>
+                    <div class="embed-card-body tiktok-body" id="tt-embed-body"></div>
+                </div>
+                <div class="embed-card" id="ig-embed-card" style="display:none;">
+                    <div class="embed-card-header">
+                        <i class="fab fa-instagram" style="color:#E1306C;"></i> Instagram
+                    </div>
+                    <div class="embed-card-body" id="ig-embed-body"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. SNS Links -->
+        <div class="other-platforms">
+            <a href="https://www.youtube.com/channel/UCFB2rlhoZymxH3K-ftuZw2A" class="social-btn youtube" target="_blank" rel="noopener">
+                <i class="fab fa-youtube social-icon"></i>
+                YouTube
+            </a>
+
+            <a href="https://www.tiktok.com/@kbj.dance.fan" class="social-btn tiktok" target="_blank" rel="noopener">
+                <i class="fab fa-tiktok social-icon"></i>
+                TikTok
+            </a>
+
+            <a href="https://www.instagram.com/koreanbj_dance/" class="social-btn instagram" target="_blank" rel="noopener">
+                <i class="fab fa-instagram social-icon"></i>
+                Instagram
+            </a>
+        </div>
+
+        <footer></footer>
     </div>
 
     <script>
@@ -721,7 +710,7 @@
             return n.toString();
         }
 
-        fetch('stats.json')
+        fetch('stats.json?t=' + Date.now())
             .then(function(r) { return r.ok ? r.json() : null; })
             .then(function(data) {
                 if (!data) return;
@@ -730,15 +719,14 @@
                 var strip = document.getElementById('stats-strip');
                 strip.style.display = '';
 
-                var subEl = document.getElementById('stat-subscribers');
                 var vidEl = document.getElementById('stat-videos');
                 var bjEl = document.getElementById('stat-bjs');
 
-                if (data.youtube && data.youtube.subscribers) {
-                    subEl.textContent = formatNumber(data.youtube.subscribers) + '+';
-                    subEl.classList.add('loaded');
-                }
-                if (data.totals && data.totals.videos) {
+                var tgVids = data.telegram && data.telegram.total_videos;
+                if (tgVids) {
+                    vidEl.textContent = formatNumber(tgVids) + '+';
+                    vidEl.classList.add('loaded');
+                } else if (data.totals && data.totals.videos) {
                     vidEl.textContent = formatNumber(data.totals.videos) + '+';
                     vidEl.classList.add('loaded');
                 }
@@ -747,10 +735,21 @@
                     bjEl.classList.add('loaded');
                 }
 
-                // Latest YouTube videos thumbnails
+                // YouTube: embed latest video (works on mobile, unlike playlist)
                 if (data.youtube && data.youtube.latest_videos && data.youtube.latest_videos.length) {
+                    var latestId = data.youtube.latest_videos[0].id;
+                    var ytBody = document.getElementById('yt-embed-body');
+                    var ytIframe = document.createElement('iframe');
+                    ytIframe.src = 'https://www.youtube.com/embed/' + latestId;
+                    ytIframe.title = 'Latest Video';
+                    ytIframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+                    ytIframe.allowFullscreen = true;
+                    ytIframe.loading = 'lazy';
+                    ytBody.appendChild(ytIframe);
+
+                    // Remaining videos as thumbnails
                     var container = document.getElementById('latest-videos');
-                    data.youtube.latest_videos.forEach(function(v) {
+                    data.youtube.latest_videos.slice(1).forEach(function(v) {
                         var a = document.createElement('a');
                         a.href = 'https://www.youtube.com/watch?v=' + v.id;
                         a.target = '_blank';
@@ -772,58 +771,60 @@
                     });
                 }
 
-                // VIP comparison dynamic numbers
-                if (data.totals) {
-                    if (data.totals.videos) {
-                        document.getElementById('vip-videos').textContent = formatNumber(data.totals.videos) + '+ full videos';
+                // Free vs VIP comparison (dynamic from Telegram counts)
+                if (data.telegram) {
+                    var freeVids = data.telegram.free_videos;
+                    var totalVids = data.telegram.total_videos;
+                    if (freeVids) {
+                        document.getElementById('free-videos').textContent = formatNumber(freeVids) + '+ videos';
                     }
-                    if (data.totals.bjs) {
-                        document.getElementById('vip-bjs').textContent = data.totals.bjs + '+ BJs';
+                    if (totalVids) {
+                        var paidVids = totalVids - (freeVids || 0);
+                        document.getElementById('vip-videos').textContent = formatNumber(paidVids) + '+ full videos';
                     }
                 }
+                if (data.totals && data.totals.bjs) {
+                    var bjsEl = document.getElementById('vip-bjs');
+                    bjsEl.innerHTML = '<span class="notranslate">' + data.totals.bjs + '+ BJS</span> (Korean + Chinese)';
+                }
 
-                // SNS Embeds (random pick)
-                if (data.sns_posts) {
-                    var hasContent = false;
-                    var grid = document.querySelector('.sns-embed-grid');
+                // TikTok embed (random pick) - blockquote + embed.js
+                if (data.sns_posts && data.sns_posts.tiktok && data.sns_posts.tiktok.length) {
+                    var ttIds = data.sns_posts.tiktok;
+                    var ttPick = ttIds[Math.floor(Math.random() * ttIds.length)];
+                    var ttCard = document.getElementById('tt-embed-card');
+                    var ttBody = document.getElementById('tt-embed-body');
+                    var bq = document.createElement('blockquote');
+                    bq.className = 'tiktok-embed';
+                    bq.setAttribute('cite', 'https://www.tiktok.com/@kbj.dance.fan/video/' + ttPick);
+                    bq.setAttribute('data-video-id', ttPick);
+                    bq.innerHTML = '<section></section>';
+                    ttBody.appendChild(bq);
+                    var ttScript = document.createElement('script');
+                    ttScript.src = 'https://www.tiktok.com/embed.js';
+                    ttScript.async = true;
+                    document.body.appendChild(ttScript);
+                    ttCard.style.display = '';
+                }
 
-                    // TikTok
-                    if (data.sns_posts.tiktok && data.sns_posts.tiktok.length) {
-                        var ttIds = data.sns_posts.tiktok;
-                        var ttPick = ttIds[Math.floor(Math.random() * ttIds.length)];
-                        var ttWrap = document.getElementById('tiktok-embed-wrap');
-                        var ttFrame = document.getElementById('tiktok-embed');
-                        var ttIframe = document.createElement('iframe');
-                        ttIframe.src = 'https://www.tiktok.com/embed/v2/' + ttPick;
-                        ttIframe.allow = 'encrypted-media';
-                        ttIframe.loading = 'lazy';
-                        ttFrame.appendChild(ttIframe);
-                        ttWrap.style.display = '';
-                        hasContent = true;
-                    }
+                // Instagram embed (random pick)
+                if (data.sns_posts && data.sns_posts.instagram && data.sns_posts.instagram.length) {
+                    var igIds = data.sns_posts.instagram;
+                    var igPick = igIds[Math.floor(Math.random() * igIds.length)];
+                    var igCard = document.getElementById('ig-embed-card');
+                    var igBody = document.getElementById('ig-embed-body');
+                    var igIframe = document.createElement('iframe');
+                    igIframe.src = 'https://www.instagram.com/p/' + igPick + '/embed/';
+                    igIframe.loading = 'lazy';
+                    igBody.appendChild(igIframe);
+                    igCard.style.display = '';
+                }
 
-                    // Instagram
-                    if (data.sns_posts.instagram && data.sns_posts.instagram.length) {
-                        var igIds = data.sns_posts.instagram;
-                        var igPick = igIds[Math.floor(Math.random() * igIds.length)];
-                        var igWrap = document.getElementById('instagram-embed-wrap');
-                        var igFrame = document.getElementById('instagram-embed');
-                        var igIframe = document.createElement('iframe');
-                        igIframe.src = 'https://www.instagram.com/p/' + igPick + '/embed/';
-                        igIframe.loading = 'lazy';
-                        igFrame.appendChild(igIframe);
-                        igWrap.style.display = '';
-                        hasContent = true;
-                    }
-
-                    if (hasContent) {
-                        document.getElementById('sns-embeds').style.display = '';
-                        // If only one platform, use single column layout
-                        var visibleCols = document.querySelectorAll('.sns-embed-col[style=""],.sns-embed-col:not([style*="display:none"])');
-                        if (visibleCols.length === 1) {
-                            grid.classList.add('single-col');
-                        }
-                    }
+                // Adjust SNS row: if only 1 visible (TikTok or Instagram), single column
+                var snsRow = document.getElementById('embed-row-sns');
+                var snsVisible = snsRow.querySelectorAll('.embed-card:not([style*="display: none"]):not([style*="display:none"])');
+                if (snsVisible.length <= 1) {
+                    snsRow.classList.add('single-col');
                 }
             })
             .catch(function() { /* stats.json not available, graceful degradation */ });

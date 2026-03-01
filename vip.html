@@ -420,8 +420,7 @@
             </div>
             
             <!-- VIP -->
-            <div class="plan popular">
-                <div class="plan-badge" data-en="★ POPULAR" data-ja="★ 人気" data-ko="★ 인기" data-zh="★ 熱門">★ POPULAR</div>
+            <div class="plan">
                 <div class="plan-icon">💎</div>
                 <div class="plan-name">VIP</div>
                 <div class="plan-price">$8<span>/month</span></div>
@@ -602,25 +601,24 @@
                 document.querySelectorAll('.channel[data-channel]').forEach(el => {
                     const key = el.getAttribute('data-channel');
                     const ch = data.channels[key];
-                    if (!ch) return;
+                    if (!ch || !ch.videos) return;
                     const statsDiv = el.querySelector('.channel-stats');
                     if (!statsDiv) return;
                     statsDiv.innerHTML =
-                        '<span><span class="cs-num">' + ch.videos + '+</span> videos</span>' +
-                        '<span><span class="cs-num">' + ch.bjs + '+</span> BJs</span>';
+                        '<span>🎬 <span class="cs-num">' + ch.videos.toLocaleString() + '</span> videos</span>';
                     statsDiv.style.display = '';
                 });
 
                 // Populate plan total stats
                 ['entry', 'vip', 'premier'].forEach(plan => {
-                    let totalV = 0, totalB = 0;
+                    let totalV = 0;
                     PLAN_CHANNELS[plan].forEach(name => {
                         const ch = data.channels[name];
-                        if (ch) { totalV += ch.videos; totalB += ch.bjs; }
+                        if (ch) { totalV += ch.videos; }
                     });
                     const el = document.getElementById('plan-' + plan + '-stats');
                     if (el && totalV > 0) {
-                        el.textContent = totalV.toLocaleString() + '+ videos / ' + totalB + '+ BJs';
+                        el.textContent = totalV.toLocaleString() + '+ videos';
                     }
                 });
             })

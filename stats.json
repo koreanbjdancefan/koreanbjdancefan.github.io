@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-03-01T02:35:21.241524+00:00",
+  "updated_at": "2026-03-01T05:42:02.594067+00:00",
   "youtube": {
     "subscribers": 10700,
-    "total_views": 2160074,
+    "total_views": 2162604,
     "video_count": 247,
     "latest_videos": [
       {
@@ -26,13 +26,26 @@
     ]
   },
   "telegram": {
-    "members": 313
+    "members": 313,
+    "total_videos": 50279,
+    "free_videos": 1199
   },
   "totals": {
     "videos": 21672,
-    "bjs": 1911
+    "bjs": 386
   },
-  "channels": {},
+  "channels": {
+    "Dance": {"videos": 7731, "bjs": 0, "tier": "entry"},
+    "ChineseDance": {"videos": 13789, "bjs": 0, "tier": "entry"},
+    "New and old": {"videos": 6238, "bjs": 0, "tier": "vip"},
+    "NudeDance": {"videos": 1229, "bjs": 0, "tier": "vip"},
+    "CrewDance": {"videos": 2810, "bjs": 0, "tier": "vip"},
+    "Short Dance": {"videos": 1141, "bjs": 0, "tier": "vip"},
+    "almighty": {"videos": 12515, "bjs": 0, "tier": "premier"},
+    "Dance clippings": {"videos": 1816, "bjs": 0, "tier": "premier"},
+    "CrewDance Full": {"videos": 242, "bjs": 0, "tier": "premier"},
+    "strage": {"videos": 1569, "bjs": 0, "tier": "premier"}
+  },
   "sns_posts": {
     "tiktok": [
       "7519037887367761170",
@@ -47,6 +60,27 @@
       "7490062619651624210",
       "7490000972593237255"
     ],
-    "instagram": []
+    "instagram": [
+      "DUkfv_nCfw1",
+      "DMJ9i0vgDVw",
+      "DL4JdCGgPS5",
+      "DL1C3oiAyE6",
+      "DLwOuD4AESC",
+      "DLuDYZUg0_P",
+      "DLrOavVAmTV",
+      "DLY787QghiW",
+      "DLPBpAcgfVC",
+      "DLKBU-mg7hQ",
+      "DLHTP7Ug0xu",
+      "DK3uucsA58z",
+      "DKtCNSnAz-f",
+      "DKoRgO-gFxU",
+      "DKl2IpmAKPW",
+      "DKgT6YtgYLW",
+      "DKd8I8hgqJo",
+      "DKTtZP5AdiX",
+      "DKBXG2FgIVp",
+      "DJ8l391gND9"
+    ]
   }
 }
