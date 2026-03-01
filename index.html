@@ -82,11 +82,14 @@
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
             border-radius: 30px;
-            padding: 40px;
-            padding-top: 0;
+            padding: 0;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
             overflow: hidden;
             text-align: center;
+        }
+
+        .container-inner {
+            padding: 0 40px 40px;
         }
 
         .translate-wrapper {
@@ -102,7 +105,7 @@
         .hero {
             position: relative;
             overflow: hidden;
-            margin: 0 -40px 20px;
+            margin: 0 0 20px;
             padding: 30px 20px;
         }
 
@@ -576,6 +579,7 @@
             </div>
         </div>
 
+        <div class="container-inner">
         <!-- Stats Counter Strip -->
         <div class="stats-strip" id="stats-strip" style="display:none;">
             <div class="stat-item">
@@ -687,6 +691,7 @@
         </div>
 
         <footer></footer>
+        </div>
     </div>
 
     <script>
