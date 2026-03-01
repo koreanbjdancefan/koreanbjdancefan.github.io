@@ -97,6 +97,37 @@
             border-radius: 20px;
         }
 
+        .hero {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            margin: -20px -20px 20px;
+            padding: 50px 20px;
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            z-index: 0;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
         .logo {
             width: 200px;
             height: 200px;
@@ -522,18 +553,26 @@
     </div>
 
     <div class="container">
-        <div class="logo">
-            <img src="KBJFAN.jpg" alt="KBJ Fan Logo">
-        </div>
+        <div class="hero">
+            <video class="hero-video" autoplay muted loop playsinline>
+                <source src="hero-bg.mp4" type="video/mp4">
+            </video>
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <div class="logo">
+                    <img src="KBJFAN.jpg" alt="KBJ Fan Logo">
+                </div>
 
-        <h1>Korean BJ Dance Fan</h1>
-        <p class="tagline">Introducing Korean BJ (Broadcast Jockeys) Dancers</p>
+                <h1>Korean BJ Dance Fan</h1>
+                <p class="tagline">Introducing Korean BJ (Broadcast Jockeys) Dancers</p>
 
-        <div class="multilingual-text">
-            <p>&#54620;&#44397;&#51032; BJ&#51032; &#46041;&#50689;&#49345;&#51012; &#48376;&#45796;&#47732; &#50668;&#44592;&#9825;</p>
-            <p>&#38867;&#22269;&#12398;BJ&#12398;&#21205;&#30011;&#12434;&#35211;&#12427;&#12394;&#12425;&#12371;&#12371;&#9825;</p>
-            <p>If you want to watch Korean BJ videos, click here&#9825;</p>
-            <p>&#40670;&#36889;&#35041;&#35264;&#30475;&#38867;&#22283;BJ&#24433;&#29255;&#9825;</p>
+                <div class="multilingual-text">
+                    <p>&#54620;&#44397;&#51032; BJ&#51032; &#46041;&#50689;&#49345;&#51012; &#48376;&#45796;&#47732; &#50668;&#44592;&#9825;</p>
+                    <p>&#38867;&#22269;&#12398;BJ&#12398;&#21205;&#30011;&#12434;&#35211;&#12427;&#12394;&#12425;&#12371;&#12371;&#9825;</p>
+                    <p>If you want to watch Korean BJ videos, click here&#9825;</p>
+                    <p>&#40670;&#36889;&#35041;&#35264;&#30475;&#38867;&#22283;BJ&#24433;&#29255;&#9825;</p>
+                </div>
+            </div>
         </div>
 
         <!-- Stats Counter Strip -->
