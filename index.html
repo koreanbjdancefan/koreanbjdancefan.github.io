@@ -384,18 +384,6 @@
             margin-bottom: 25px;
         }
 
-        .embed-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-        }
-
-        .embed-row.single-col {
-            grid-template-columns: 1fr;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
         .embed-card {
             background: rgba(255, 255, 255, 0.08);
             border-radius: 12px;
@@ -430,69 +418,6 @@
             width: 100%;
             height: 100%;
             border: none;
-        }
-
-        /* TikTok: blockquote embed, let embed.js handle sizing */
-        .embed-card-body.tiktok-body {
-            padding-bottom: 0;
-            position: static;
-            overflow: visible;
-        }
-
-        .embed-card-body.tiktok-body blockquote {
-            margin: 0 !important;
-            max-width: 100% !important;
-            min-width: 100% !important;
-        }
-
-        .embed-card-body.tiktok-body iframe {
-            position: static !important;
-            max-width: 100% !important;
-            min-width: 100% !important;
-        }
-
-        /* Instagram link card */
-        .ig-link-card {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            color: #fff;
-            background: linear-gradient(135deg, #833ab4 0%, #fd1d1d 50%, #fcb045 100%);
-            border-radius: 12px;
-            padding: 32px 20px;
-            min-height: 280px;
-            text-align: center;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        .ig-link-card:hover {
-            transform: scale(1.02);
-            box-shadow: 0 8px 24px rgba(131,58,180,0.4);
-        }
-        .ig-link-card .ig-icon {
-            width: 64px;
-            height: 64px;
-            border: 3px solid #fff;
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 16px;
-            font-size: 32px;
-        }
-        .ig-link-card .ig-username {
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
-        .ig-link-card .ig-cta {
-            font-size: 0.9rem;
-            opacity: 0.9;
-            background: rgba(255,255,255,0.2);
-            padding: 8px 20px;
-            border-radius: 20px;
-            margin-top: 12px;
         }
 
         .latest-videos {
@@ -573,10 +498,6 @@
             }
             .stat-number { font-size: 1.3em; }
 
-            .embed-row {
-                grid-template-columns: 1fr !important;
-            }
-
             .embed-card-body {
                 padding-bottom: 120%;  /* shorter on mobile for less scrolling */
             }
@@ -642,10 +563,10 @@
                         <span style="font-size: 1.2em; font-weight: 700;">Join Telegram Channel</span>
                     </div>
                     <div class="telegram-desc">
-                        <p>&#45796;&#47480; SNS&#50640;&#49436;&#45716; &#48380; &#49688; &#50630;&#45716; &#53945;&#48324;&#54620; &#50689;&#49345;&#8251;</p>
-                        <p>&#20182;&#12398;SNS&#12391;&#12399;&#35211;&#12425;&#12428;&#12394;&#12356;&#29305;&#21029;&#12394;&#21205;&#30011;&#8251;</p>
-                        <p>Special videos that can't be seen on other SNS&#8251;</p>
-                        <p>&#20854;&#20182;&#31038;&#32676;&#23186;&#39636;&#30475;&#19981;&#21040;&#30340;&#29305;&#21029;&#24433;&#29255;&#8251;</p>
+                        <p>&#45796;&#47480; SNS&#50640;&#49436;&#45716; &#48380; &#49688; &#50630;&#45716; &#53945;&#48324;&#54620; &#50689;&#49345;&#127925;</p>
+                        <p>&#20182;&#12398;SNS&#12391;&#12399;&#35211;&#12425;&#12428;&#12394;&#12356;&#29305;&#21029;&#12394;&#21205;&#30011;&#127925;</p>
+                        <p>Special videos that can't be seen on other SNS&#127925;</p>
+                        <p>&#20854;&#20182;&#31038;&#32676;&#23186;&#39636;&#30475;&#19981;&#21040;&#30340;&#29305;&#21029;&#24433;&#29255;&#127925;</p>
                     </div>
                     <span class="cta-btn">Join Free Channel</span>
                 </div>
@@ -660,10 +581,10 @@
                     <span style="font-size: 1.2em; font-weight: 700;">VIP Membership</span>
                 </div>
                 <div class="vip-desc">
-                    <p>&#54532;&#47532;&#48120;&#50628; &#52292;&#45328; $3/&#50900;&#48512;&#53552;&#8251;</p>
-                    <p>&#12503;&#12524;&#12511;&#12450;&#12512;&#12481;&#12515;&#12531;&#12493;&#12523; $3/&#26376;&#12363;&#12425;&#8251;</p>
-                    <p>Premium channels from $3/month&#8251;</p>
-                    <p>&#39640;&#32026;&#38971;&#36947; &#27599;&#26376;$3&#36215;&#8251;</p>
+                    <p>&#54532;&#47532;&#48120;&#50628; &#52292;&#45328; $3/&#50900;&#48512;&#53552;&#128081;</p>
+                    <p>&#12503;&#12524;&#12511;&#12450;&#12512;&#12481;&#12515;&#12531;&#12493;&#12523; $3/&#26376;&#12363;&#12425;&#128081;</p>
+                    <p>Premium channels from $3/month&#128081;</p>
+                    <p>&#39640;&#32026;&#38971;&#36947; &#27599;&#26376;$3&#36215;&#128081;</p>
                 </div>
                 <span class="cta-btn">View Plans</span>
             </div>
@@ -704,24 +625,6 @@
                     <!-- Filled by JS with latest video from stats.json -->
                 </div>
                 <div class="latest-videos" id="latest-videos"></div>
-            </div>
-        </div>
-
-        <!-- 5. TikTok + Instagram (side by side) -->
-        <div class="embed-section">
-            <div class="embed-row" id="embed-row-sns">
-                <div class="embed-card" id="tt-embed-card" style="display:none;">
-                    <div class="embed-card-header">
-                        <i class="fab fa-tiktok"></i> TikTok
-                    </div>
-                    <div class="embed-card-body tiktok-body" id="tt-embed-body"></div>
-                </div>
-                <div class="embed-card" id="ig-embed-card" style="display:none;">
-                    <div class="embed-card-header">
-                        <i class="fab fa-instagram" style="color:#E1306C;"></i> Instagram
-                    </div>
-                    <div class="embed-card-body" id="ig-embed-body"></div>
-                </div>
             </div>
         </div>
 
@@ -832,64 +735,6 @@
                     bjsEl.innerHTML = '<span class="notranslate">' + data.totals.bjs + '+ BJS</span> (Korean + Chinese)';
                 }
 
-                // TikTok embed (random pick) - blockquote + embed.js
-                if (data.sns_posts && data.sns_posts.tiktok && data.sns_posts.tiktok.length) {
-                    var ttIds = data.sns_posts.tiktok;
-                    var ttPick = ttIds[Math.floor(Math.random() * ttIds.length)];
-                    var ttCard = document.getElementById('tt-embed-card');
-                    var ttBody = document.getElementById('tt-embed-body');
-                    var bq = document.createElement('blockquote');
-                    bq.className = 'tiktok-embed';
-                    bq.setAttribute('cite', 'https://www.tiktok.com/@kbj.dance.fan/video/' + ttPick);
-                    bq.setAttribute('data-video-id', ttPick);
-                    bq.innerHTML = '<section></section>';
-                    ttBody.appendChild(bq);
-                    var ttScript = document.createElement('script');
-                    ttScript.src = 'https://www.tiktok.com/embed.js';
-                    ttScript.async = true;
-                    document.body.appendChild(ttScript);
-                    ttCard.style.display = '';
-                }
-
-                // Instagram link card (embed API unreliable, use link card instead)
-                if (data.sns_posts && data.sns_posts.instagram && data.sns_posts.instagram.length) {
-                    var igIds = data.sns_posts.instagram;
-                    var igPick = igIds[Math.floor(Math.random() * igIds.length)];
-                    var igCard = document.getElementById('ig-embed-card');
-                    var igBody = document.getElementById('ig-embed-body');
-                    igBody.style.padding = '0';
-                    igBody.style.position = 'static';
-                    var a = document.createElement('a');
-                    a.className = 'ig-link-card';
-                    a.href = 'https://www.instagram.com/p/' + igPick + '/';
-                    a.target = '_blank';
-                    a.rel = 'noopener';
-                    a.innerHTML = '<div class="ig-icon"><svg viewBox="0 0 24 24" width="32" height="32" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></div>'
-                        + '<div class="ig-username">@koreanbj_dance</div>'
-                        + '<div style="font-size:0.85rem;opacity:0.85;">Latest dance clips & highlights</div>'
-                        + '<div class="ig-cta">View on Instagram &rarr;</div>';
-                    igBody.appendChild(a);
-                    igCard.style.display = '';
-                }
-
-                // Adjust SNS row: if only 1 visible (TikTok or Instagram), single column
-                var snsRow = document.getElementById('embed-row-sns');
-                var snsVisible = snsRow.querySelectorAll('.embed-card:not([style*="display: none"]):not([style*="display:none"])');
-                if (snsVisible.length <= 1) {
-                    snsRow.classList.add('single-col');
-                }
-
-                // Fallback: hide broken TikTok embed after 5 seconds
-                setTimeout(function() {
-                    var ttBody = document.getElementById('tt-embed-body');
-                    if (ttBody && ttBody.querySelector('.tiktok-embed') && !ttBody.querySelector('iframe')) {
-                        document.getElementById('tt-embed-card').style.display = 'none';
-                    }
-                    var snsRow2 = document.getElementById('embed-row-sns');
-                    var vis = snsRow2.querySelectorAll('.embed-card:not([style*="display: none"]):not([style*="display:none"])');
-                    if (vis.length === 0) snsRow2.style.display = 'none';
-                    else if (vis.length === 1) snsRow2.classList.add('single-col');
-                }, 5000);
             })
             .catch(function() { /* stats.json not available, graceful degradation */ });
     })();
