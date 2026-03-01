@@ -807,16 +807,28 @@
                     ttCard.style.display = '';
                 }
 
-                // Instagram embed (random pick)
+                // Instagram embed (official blockquote format + embed.js)
                 if (data.sns_posts && data.sns_posts.instagram && data.sns_posts.instagram.length) {
                     var igIds = data.sns_posts.instagram;
                     var igPick = igIds[Math.floor(Math.random() * igIds.length)];
+                    var igUrl = 'https://www.instagram.com/p/' + igPick + '/?utm_source=ig_embed&utm_campaign=loading';
                     var igCard = document.getElementById('ig-embed-card');
                     var igBody = document.getElementById('ig-embed-body');
-                    var igIframe = document.createElement('iframe');
-                    igIframe.src = 'https://www.instagram.com/p/' + igPick + '/embed/';
-                    igIframe.loading = 'lazy';
-                    igBody.appendChild(igIframe);
+                    var bq = document.createElement('blockquote');
+                    bq.className = 'instagram-media';
+                    bq.setAttribute('data-instgrm-permalink', igUrl);
+                    bq.setAttribute('data-instgrm-version', '14');
+                    bq.style.cssText = 'background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin:0; max-width:100%; min-width:100%; padding:0;';
+                    var link = document.createElement('a');
+                    link.href = igUrl;
+                    link.target = '_blank';
+                    link.textContent = 'View this post on Instagram';
+                    bq.appendChild(link);
+                    igBody.appendChild(bq);
+                    var igScript = document.createElement('script');
+                    igScript.src = 'https://www.instagram.com/embed.js';
+                    igScript.async = true;
+                    document.body.appendChild(igScript);
                     igCard.style.display = '';
                 }
 
@@ -826,6 +838,22 @@
                 if (snsVisible.length <= 1) {
                     snsRow.classList.add('single-col');
                 }
+
+                // Fallback: hide broken embeds after 5 seconds
+                setTimeout(function() {
+                    var ttBody = document.getElementById('tt-embed-body');
+                    var igBody = document.getElementById('ig-embed-body');
+                    if (ttBody && ttBody.querySelector('.tiktok-embed') && !ttBody.querySelector('iframe')) {
+                        document.getElementById('tt-embed-card').style.display = 'none';
+                    }
+                    if (igBody && igBody.querySelector('.instagram-media') && !igBody.querySelector('iframe')) {
+                        document.getElementById('ig-embed-card').style.display = 'none';
+                    }
+                    var snsRow2 = document.getElementById('embed-row-sns');
+                    var vis = snsRow2.querySelectorAll('.embed-card:not([style*="display: none"]):not([style*="display:none"])');
+                    if (vis.length === 0) snsRow2.style.display = 'none';
+                    else if (vis.length === 1) snsRow2.classList.add('single-col');
+                }, 5000);
             })
             .catch(function() { /* stats.json not available, graceful degradation */ });
     })();
