@@ -10,6 +10,26 @@
 
   gtag('config', 'G-JZBCL6B1NQ');
 </script>
+<script>
+  document.addEventListener('click', function(e) {
+    var link = e.target.closest('a[href]');
+    if (!link) return;
+    var href = link.getAttribute('href');
+    var label = link.textContent.trim().substring(0, 50);
+    if (href.startsWith('http')) {
+      gtag('event', 'outbound_click', {
+        event_category: 'outbound',
+        event_label: label,
+        link_url: href
+      });
+    } else if (href === 'vip.html') {
+      gtag('event', 'vip_click', {
+        event_category: 'navigation',
+        event_label: 'VIP Membership'
+      });
+    }
+  });
+</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Korean BJ Dance Fan - All Links</title>

@@ -1,6 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JZBCL6B1NQ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-JZBCL6B1NQ');
+    </script>
+    <script>
+      document.addEventListener('click', function(e) {
+        var link = e.target.closest('a[href]');
+        if (!link) return;
+        var href = link.getAttribute('href');
+        var plan = link.closest('.plan');
+        var planName = plan ? plan.querySelector('.plan-name').textContent : 'unknown';
+        var label = link.textContent.trim();
+        if (href.startsWith('http')) {
+          gtag('event', 'payment_click', {
+            event_category: 'conversion',
+            event_label: planName + ' - ' + label,
+            link_url: href
+          });
+        }
+      });
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KBJDFAN - VIP Membership</title>
