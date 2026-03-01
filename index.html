@@ -451,6 +451,50 @@
             min-width: 100% !important;
         }
 
+        /* Instagram link card */
+        .ig-link-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: #fff;
+            background: linear-gradient(135deg, #833ab4 0%, #fd1d1d 50%, #fcb045 100%);
+            border-radius: 12px;
+            padding: 32px 20px;
+            min-height: 280px;
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .ig-link-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 24px rgba(131,58,180,0.4);
+        }
+        .ig-link-card .ig-icon {
+            width: 64px;
+            height: 64px;
+            border: 3px solid #fff;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+            font-size: 32px;
+        }
+        .ig-link-card .ig-username {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .ig-link-card .ig-cta {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            background: rgba(255,255,255,0.2);
+            padding: 8px 20px;
+            border-radius: 20px;
+            margin-top: 12px;
+        }
+
         .latest-videos {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -807,28 +851,24 @@
                     ttCard.style.display = '';
                 }
 
-                // Instagram embed (official blockquote format + embed.js)
+                // Instagram link card (embed API unreliable, use link card instead)
                 if (data.sns_posts && data.sns_posts.instagram && data.sns_posts.instagram.length) {
                     var igIds = data.sns_posts.instagram;
                     var igPick = igIds[Math.floor(Math.random() * igIds.length)];
-                    var igUrl = 'https://www.instagram.com/p/' + igPick + '/?utm_source=ig_embed&utm_campaign=loading';
                     var igCard = document.getElementById('ig-embed-card');
                     var igBody = document.getElementById('ig-embed-body');
-                    var bq = document.createElement('blockquote');
-                    bq.className = 'instagram-media';
-                    bq.setAttribute('data-instgrm-permalink', igUrl);
-                    bq.setAttribute('data-instgrm-version', '14');
-                    bq.style.cssText = 'background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin:0; max-width:100%; min-width:100%; padding:0;';
-                    var link = document.createElement('a');
-                    link.href = igUrl;
-                    link.target = '_blank';
-                    link.textContent = 'View this post on Instagram';
-                    bq.appendChild(link);
-                    igBody.appendChild(bq);
-                    var igScript = document.createElement('script');
-                    igScript.src = 'https://www.instagram.com/embed.js';
-                    igScript.async = true;
-                    document.body.appendChild(igScript);
+                    igBody.style.padding = '0';
+                    igBody.style.position = 'static';
+                    var a = document.createElement('a');
+                    a.className = 'ig-link-card';
+                    a.href = 'https://www.instagram.com/p/' + igPick + '/';
+                    a.target = '_blank';
+                    a.rel = 'noopener';
+                    a.innerHTML = '<div class="ig-icon"><svg viewBox="0 0 24 24" width="32" height="32" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></div>'
+                        + '<div class="ig-username">@koreanbj_dance</div>'
+                        + '<div style="font-size:0.85rem;opacity:0.85;">Latest dance clips & highlights</div>'
+                        + '<div class="ig-cta">View on Instagram &rarr;</div>';
+                    igBody.appendChild(a);
                     igCard.style.display = '';
                 }
 
@@ -839,15 +879,11 @@
                     snsRow.classList.add('single-col');
                 }
 
-                // Fallback: hide broken embeds after 5 seconds
+                // Fallback: hide broken TikTok embed after 5 seconds
                 setTimeout(function() {
                     var ttBody = document.getElementById('tt-embed-body');
-                    var igBody = document.getElementById('ig-embed-body');
                     if (ttBody && ttBody.querySelector('.tiktok-embed') && !ttBody.querySelector('iframe')) {
                         document.getElementById('tt-embed-card').style.display = 'none';
-                    }
-                    if (igBody && igBody.querySelector('.instagram-media') && !igBody.querySelector('iframe')) {
-                        document.getElementById('ig-embed-card').style.display = 'none';
                     }
                     var snsRow2 = document.getElementById('embed-row-sns');
                     var vis = snsRow2.querySelectorAll('.embed-card:not([style*="display: none"]):not([style*="display:none"])');
