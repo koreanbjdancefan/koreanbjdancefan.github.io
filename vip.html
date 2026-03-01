@@ -215,6 +215,28 @@
             font-size: 0.9em;
             color: #aaa;
         }
+        .channel-stats {
+            display: flex;
+            gap: 12px;
+            margin-top: 10px;
+            padding: 8px 12px;
+            background: rgba(255,255,255,0.06);
+            border-radius: 8px;
+            font-size: 0.8em;
+        }
+        .channel-stats span {
+            color: #ddd;
+        }
+        .channel-stats .cs-num {
+            color: #feca57;
+            font-weight: 700;
+        }
+        .plan-total-stats {
+            font-size: 0.85em;
+            color: #feca57;
+            margin-top: 5px;
+            font-weight: 600;
+        }
         .channel-tier {
             display: inline-block;
             padding: 3px 8px;
@@ -383,6 +405,7 @@
                 <div class="plan-price">$3<span>/month</span></div>
                 <div class="plan-subprice">Fanbox: ¥500</div>
                 <div class="plan-channels" data-en="2 Channels" data-ja="2チャンネル" data-ko="2채널" data-zh="2頻道">2 Channels</div>
+                <div class="plan-total-stats" id="plan-entry-stats"></div>
                 <ul class="plan-features">
                     <li>【KBJDF】Dance</li>
                     <li>【KBJDF】ChineseDance</li>
@@ -404,6 +427,7 @@
                 <div class="plan-price">$8<span>/month</span></div>
                 <div class="plan-subprice">Fanbox: ¥1,200</div>
                 <div class="plan-channels" data-en="6 Channels" data-ja="6チャンネル" data-ko="6채널" data-zh="6頻道">6 Channels</div>
+                <div class="plan-total-stats" id="plan-vip-stats"></div>
                 <ul class="plan-features">
                     <li data-en="All Entry channels +" data-ja="Entry全て +" data-ko="Entry 전부 +" data-zh="Entry 全部 +">All Entry channels +</li>
                     <li>【KBJDF】NudeDance 🔥</li>
@@ -427,6 +451,7 @@
                 <div class="plan-price">$12<span>/month</span></div>
                 <div class="plan-subprice">Fanbox: ¥1,800</div>
                 <div class="plan-channels" data-en="All 10 Channels" data-ja="全10チャンネル" data-ko="전 10채널" data-zh="全10頻道">All 10 Channels</div>
+                <div class="plan-total-stats" id="plan-premier-stats"></div>
                 <ul class="plan-features">
                     <li data-en="All VIP channels +" data-ja="VIP全て +" data-ko="VIP 전부 +" data-zh="VIP 全部 +">All VIP channels +</li>
                     <li>【KBJDF】almighty ⚡</li>
@@ -448,54 +473,64 @@
         <div class="channels">
             <h2 data-en="📺 Channel Details" data-ja="📺 チャンネル詳細" data-ko="📺 채널 상세" data-zh="📺 頻道詳情">📺 Channel Details</h2>
             <div class="channel-grid">
-                <div class="channel">
+                <div class="channel" data-channel="Dance">
                     <div class="channel-name">【KBJDF】Dance</div>
                     <div class="channel-desc" data-en="Curated content from popular Korean BJs. Perfect for discovering the world of BJ streaming." data-ja="人気韓国BJ(配信者)の厳選コンテンツ。BJ配信の世界を知りたい方にぴったり。" data-ko="인기 한국 BJ의 엄선 콘텐츠. BJ 방송의 세계를 알고 싶은 분에게 딱!" data-zh="精選人氣韓國BJ內容。想了解BJ直播世界的人必看。">Curated content from popular Korean BJs. Perfect for discovering the world of BJ streaming.</div>
+                    <div class="channel-stats" style="display:none;"></div>
                     <span class="channel-tier tier-entry">Entry+</span>
                 </div>
-                <div class="channel">
+                <div class="channel" data-channel="ChineseDance">
                     <div class="channel-name">【KBJDF】ChineseDance</div>
                     <div class="channel-desc" data-en="Chinese BJ culture inspired by Korean streaming! From dance to nude performances." data-ja="韓国配信に触発された中国BJカルチャー！ダンスからヌードパフォーマンスまで幅広くカバー。" data-ko="한국 방송에서 영감을 받은 중국 BJ 문화! 댄스부터 누드 퍼포먼스까지." data-zh="受韓國直播啟發的中國BJ文化！從舞蹈到裸舞表演全都有。">Chinese BJ culture inspired by Korean streaming! From dance to nude performances.</div>
+                    <div class="channel-stats" style="display:none;"></div>
                     <span class="channel-tier tier-entry">Entry+</span>
                 </div>
-                <div class="channel">
+                <div class="channel" data-channel="New and old">
                     <div class="channel-name">【KBJDF】New and old</div>
                     <div class="channel-desc" data-en="Latest streams to classic archives. Includes nude content." data-ja="最新配信からクラシックアーカイブまで。ヌードコンテンツも含む総合チャンネル。" data-ko="최신 방송부터 클래식 아카이브까지. 누드 콘텐츠 포함." data-zh="從最新直播到經典存檔。包含裸舞內容。">Latest streams to classic archives. Includes nude content.</div>
+                    <div class="channel-stats" style="display:none;"></div>
                     <span class="channel-tier tier-vip">VIP+</span>
                 </div>
-                <div class="channel">
-                    <div class="channel-name">【KBJDF】NudeDance 🔥</div>
+                <div class="channel" data-channel="NudeDance">
+                    <div class="channel-name">【KBJDF】NudeDance</div>
                     <div class="channel-desc" data-en="Korean popular BJ nude streams. What you're looking for is here." data-ja="韓国人気BJのヌード配信専門。あなたが探しているものがここに。" data-ko="한국 인기 BJ 누드 방송 전문. 당신이 찾는 것이 여기에." data-zh="韓國人氣BJ裸舞直播專區。你要找的都在這裡。">Korean popular BJ nude streams. What you're looking for is here.</div>
+                    <div class="channel-stats" style="display:none;"></div>
                     <span class="channel-tier tier-vip">VIP+</span>
                 </div>
-                <div class="channel">
-                    <div class="channel-name">【KBJDF】CrewDance 👯‍♀️</div>
+                <div class="channel" data-channel="CrewDance">
+                    <div class="channel-name">【KBJDF】CrewDance</div>
                     <div class="channel-desc" data-en="Jinricp, Mscrew33, Pandaclass... Top nude BJ group performances!" data-ja="Jinricp、Mscrew33、Pandaclass...トップヌードBJのグループパフォーマンス！" data-ko="Jinricp, Mscrew33, Pandaclass... 톱 누드 BJ 그룹 퍼포먼스!" data-zh="Jinricp、Mscrew33、Pandaclass...頂級裸舞BJ團體表演！">Jinricp, Mscrew33, Pandaclass... Top nude BJ group performances!</div>
+                    <div class="channel-stats" style="display:none;"></div>
                     <span class="channel-tier tier-vip">VIP+</span>
                 </div>
-                <div class="channel">
-                    <div class="channel-name">【KBJDF】Short Dance 🎭</div>
+                <div class="channel" data-channel="Short Dance">
+                    <div class="channel-name">【KBJDF】Short Dance</div>
                     <div class="channel-desc" data-en="Chinese sexy outfits & cosplay short videos. Nude dances included." data-ja="中国のセクシー衣装＆コスプレショート動画。もちろんヌードダンスも。" data-ko="중국 섹시 의상 & 코스프레 숏폼. 물론 누드 댄스도." data-zh="中國性感服裝和Cosplay短影片。當然也有裸舞。">Chinese sexy outfits & cosplay short videos. Nude dances included.</div>
+                    <div class="channel-stats" style="display:none;"></div>
                     <span class="channel-tier tier-vip">VIP+</span>
                 </div>
-                <div class="channel">
-                    <div class="channel-name">【KBJDF】almighty ⚡</div>
+                <div class="channel" data-channel="almighty">
+                    <div class="channel-name">【KBJDF】almighty</div>
                     <div class="channel-desc" data-en="#1 uploads! Popular BJ dance & nude streams to enjoy." data-ja="アップロード数No.1！人気BJのダンス＆ヌード配信を存分に楽しめます。" data-ko="업로드 No.1! 인기 BJ 댄스 & 누드 방송을 마음껏 즐기세요." data-zh="上傳數No.1！盡情享受人氣BJ的舞蹈和裸舞直播。">#1 uploads! Popular BJ dance & nude streams to enjoy.</div>
+                    <div class="channel-stats" style="display:none;"></div>
                     <span class="channel-tier tier-premier">Premier</span>
                 </div>
-                <div class="channel">
-                    <div class="channel-name">【KBJDF】Dance clippings 🎬</div>
+                <div class="channel" data-channel="Dance clippings">
+                    <div class="channel-name">【KBJDF】Dance clippings</div>
                     <div class="channel-desc" data-en="Popular BJ dance scenes edited into long videos. Watch your favorites." data-ja="人気BJのダンスシーンを長編動画に編集。お気に入りのBJをたっぷり視聴。" data-ko="인기 BJ 댄스 장면을 장편 영상으로 편집. 좋아하는 BJ를 실컷 시청." data-zh="將人氣BJ的舞蹈場景編輯成長影片。盡情觀看你喜歡的BJ。">Popular BJ dance scenes edited into long videos. Watch your favorites.</div>
+                    <div class="channel-stats" style="display:none;"></div>
                     <span class="channel-tier tier-premier">Premier</span>
                 </div>
-                <div class="channel">
-                    <div class="channel-name">【KBJDF】CrewDance Full 📼</div>
+                <div class="channel" data-channel="CrewDance Full">
+                    <div class="channel-name">【KBJDF】CrewDance Full</div>
                     <div class="channel-desc" data-en="Jinricp, Mscrew33, Pandaclass group streams in full length." data-ja="Jinricp、Mscrew33、Pandaclassのグループ配信をフルレングスで。全部見たい方へ。" data-ko="Jinricp, Mscrew33, Pandaclass 그룹 방송 풀버전. 전부 보고 싶은 분에게." data-zh="Jinricp、Mscrew33、Pandaclass團體直播完整版。想看全部的人必選。">Jinricp, Mscrew33, Pandaclass group streams in full length.</div>
+                    <div class="channel-stats" style="display:none;"></div>
                     <span class="channel-tier tier-premier">Premier</span>
                 </div>
-                <div class="channel">
-                    <div class="channel-name">【KBJDF】strage 💬</div>
+                <div class="channel" data-channel="strage">
+                    <div class="channel-name">【KBJDF】strage</div>
                     <div class="channel-desc" data-en="Requests accepted! 'I want this BJ' 'Find that stream' - We'll fulfill your requests." data-ja="リクエスト受付中！「このBJが見たい」「あの配信探して」—ご要望にお応えします。" data-ko="리퀘스트 접수 중! '이 BJ 보고 싶어' '저 방송 찾아줘' - 요청에 응합니다." data-zh="接受點播！「想看這個BJ」「找那個直播」—滿足您的要求。">Requests accepted! 'I want this BJ' 'Find that stream' - We'll fulfill your requests.</div>
+                    <div class="channel-stats" style="display:none;"></div>
                     <span class="channel-tier tier-premier">Premier</span>
                 </div>
             </div>
@@ -550,6 +585,46 @@
         // Load saved language
         const savedLang = localStorage.getItem('lang') || 'en';
         setLang(savedLang);
+
+        // Load stats from stats.json
+        const PLAN_CHANNELS = {
+            entry: ['Dance', 'ChineseDance'],
+            vip: ['Dance', 'ChineseDance', 'New and old', 'NudeDance', 'CrewDance', 'Short Dance'],
+            premier: ['Dance', 'ChineseDance', 'New and old', 'NudeDance', 'CrewDance', 'Short Dance', 'almighty', 'Dance clippings', 'CrewDance Full', 'strage']
+        };
+
+        fetch('stats.json')
+            .then(r => r.ok ? r.json() : null)
+            .then(data => {
+                if (!data || !data.channels) return;
+
+                // Populate per-channel stats
+                document.querySelectorAll('.channel[data-channel]').forEach(el => {
+                    const key = el.getAttribute('data-channel');
+                    const ch = data.channels[key];
+                    if (!ch) return;
+                    const statsDiv = el.querySelector('.channel-stats');
+                    if (!statsDiv) return;
+                    statsDiv.innerHTML =
+                        '<span><span class="cs-num">' + ch.videos + '+</span> videos</span>' +
+                        '<span><span class="cs-num">' + ch.bjs + '+</span> BJs</span>';
+                    statsDiv.style.display = '';
+                });
+
+                // Populate plan total stats
+                ['entry', 'vip', 'premier'].forEach(plan => {
+                    let totalV = 0, totalB = 0;
+                    PLAN_CHANNELS[plan].forEach(name => {
+                        const ch = data.channels[name];
+                        if (ch) { totalV += ch.videos; totalB += ch.bjs; }
+                    });
+                    const el = document.getElementById('plan-' + plan + '-stats');
+                    if (el && totalV > 0) {
+                        el.textContent = totalV.toLocaleString() + '+ videos / ' + totalB + '+ BJs';
+                    }
+                });
+            })
+            .catch(() => {});
     </script>
 </body>
 </html>

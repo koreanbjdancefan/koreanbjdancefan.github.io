@@ -1,0 +1,36 @@
+{
+  "updated_at": "2026-03-01T02:35:21.241524+00:00",
+  "youtube": {
+    "subscribers": 10700,
+    "total_views": 2160074,
+    "video_count": 247,
+    "latest_videos": [
+      {
+        "id": "WTtmLW2P1vA",
+        "title": "MScrew33 MSCrew MS크루2026.1.23 dance 2/30 #shorts",
+        "thumbnail": "https://i.ytimg.com/vi/WTtmLW2P1vA/mqdefault.jpg",
+        "published_at": "2026-02-22"
+      },
+      {
+        "id": "jKp0avDp4rk",
+        "title": "【KoreanBJ】Jinricp 진리컴퍼니 2022.05.19👙Pool Party🎉",
+        "thumbnail": "https://i.ytimg.com/vi/jKp0avDp4rk/mqdefault.jpg",
+        "published_at": "2026-02-22"
+      },
+      {
+        "id": "dyEupTol8BI",
+        "title": "MScrew33 MSCrew MS크루2026.1.23 dance 9/30 #shorts",
+        "thumbnail": "https://i.ytimg.com/vi/dyEupTol8BI/mqdefault.jpg",
+        "published_at": "2026-02-21"
+      }
+    ]
+  },
+  "telegram": {
+    "members": 313
+  },
+  "totals": {
+    "videos": 21672,
+    "bjs": 1911
+  },
+  "channels": {}
+}
