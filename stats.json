@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-03-06T07:45:33.667002+00:00",
+  "updated_at": "2026-03-06T07:46:12.200605+00:00",
   "youtube": {
     "subscribers": 10800,
     "total_views": 2199445,
@@ -27,7 +27,7 @@
   },
   "telegram": {
     "members": 351,
-    "total_videos": 61727,
+    "total_videos": 61731,
     "free_videos": 1400
   },
   "totals": {
@@ -46,7 +46,7 @@
       "tier": "entry"
     },
     "New and old": {
-      "videos": 8663,
+      "videos": 8666,
       "bjs": 0,
       "tier": "vip"
     },
@@ -71,7 +71,7 @@
       "tier": "premier"
     },
     "Dance clippings": {
-      "videos": 2206,
+      "videos": 2207,
       "bjs": 0,
       "tier": "premier"
     },
