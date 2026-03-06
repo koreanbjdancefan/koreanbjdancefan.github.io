@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-03-06T07:24:34.720410+00:00",
+  "updated_at": "2026-03-06T07:30:57.193728+00:00",
   "youtube": {
     "subscribers": 10800,
     "total_views": 2199445,
@@ -27,8 +27,8 @@
   },
   "telegram": {
     "members": 351,
-    "total_videos": 50279,
-    "free_videos": 1199
+    "total_videos": 61727,
+    "free_videos": 1400
   },
   "totals": {
     "videos": 26807,
@@ -36,52 +36,52 @@
   },
   "channels": {
     "Dance": {
-      "videos": 7731,
+      "videos": 8913,
       "bjs": 0,
       "tier": "entry"
     },
     "ChineseDance": {
-      "videos": 13789,
+      "videos": 17188,
       "bjs": 0,
       "tier": "entry"
     },
     "New and old": {
-      "videos": 6238,
+      "videos": 8663,
       "bjs": 0,
       "tier": "vip"
     },
     "NudeDance": {
-      "videos": 1229,
+      "videos": 1487,
       "bjs": 0,
       "tier": "vip"
     },
     "CrewDance": {
-      "videos": 2810,
+      "videos": 2872,
       "bjs": 0,
       "tier": "vip"
     },
     "Short Dance": {
-      "videos": 1141,
+      "videos": 1243,
       "bjs": 0,
       "tier": "vip"
     },
     "almighty": {
-      "videos": 12515,
+      "videos": 15913,
       "bjs": 0,
       "tier": "premier"
     },
     "Dance clippings": {
-      "videos": 1816,
+      "videos": 2206,
       "bjs": 0,
       "tier": "premier"
     },
     "CrewDance Full": {
-      "videos": 242,
+      "videos": 270,
       "bjs": 0,
       "tier": "premier"
     },
     "strage": {
-      "videos": 1569,
+      "videos": 1572,
       "bjs": 0,
       "tier": "premier"
     }
