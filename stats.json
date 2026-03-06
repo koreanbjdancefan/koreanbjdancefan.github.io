@@ -1,50 +1,90 @@
 {
-  "updated_at": "2026-03-01T05:42:02.594067+00:00",
+  "updated_at": "2026-03-06T07:24:34.720410+00:00",
   "youtube": {
-    "subscribers": 10700,
-    "total_views": 2162604,
-    "video_count": 247,
+    "subscribers": 10800,
+    "total_views": 2199445,
+    "video_count": 255,
     "latest_videos": [
       {
-        "id": "WTtmLW2P1vA",
-        "title": "MScrew33 MSCrew MS크루2026.1.23 dance 2/30 #shorts",
-        "thumbnail": "https://i.ytimg.com/vi/WTtmLW2P1vA/mqdefault.jpg",
-        "published_at": "2026-02-22"
+        "id": "OoNMmQlhfw8",
+        "title": "새봄♡dbzala Ultimate Hip Dance in a Maid Outfit! 🍑 | Dance Medley 💃",
+        "thumbnail": "https://i.ytimg.com/vi/OoNMmQlhfw8/mqdefault.jpg",
+        "published_at": "2026-03-05"
       },
       {
-        "id": "jKp0avDp4rk",
-        "title": "【KoreanBJ】Jinricp 진리컴퍼니 2022.05.19👙Pool Party🎉",
-        "thumbnail": "https://i.ytimg.com/vi/jKp0avDp4rk/mqdefault.jpg",
-        "published_at": "2026-02-22"
+        "id": "iEr2nddRfrs",
+        "title": "MScrew33 MSCrew MS크루2026.1.23 dance 14/30 #shorts",
+        "thumbnail": "https://i.ytimg.com/vi/iEr2nddRfrs/mqdefault.jpg",
+        "published_at": "2026-03-05"
       },
       {
-        "id": "dyEupTol8BI",
-        "title": "MScrew33 MSCrew MS크루2026.1.23 dance 9/30 #shorts",
-        "thumbnail": "https://i.ytimg.com/vi/dyEupTol8BI/mqdefault.jpg",
-        "published_at": "2026-02-21"
+        "id": "PHdpRtGsvrE",
+        "title": "MScrew33 MSCrew MS크루2026.1.23 dance 15/30 #shorts",
+        "thumbnail": "https://i.ytimg.com/vi/PHdpRtGsvrE/mqdefault.jpg",
+        "published_at": "2026-03-05"
       }
     ]
   },
   "telegram": {
-    "members": 313,
+    "members": 351,
     "total_videos": 50279,
     "free_videos": 1199
   },
   "totals": {
-    "videos": 21672,
-    "bjs": 386
+    "videos": 26807,
+    "bjs": 401
   },
   "channels": {
-    "Dance": {"videos": 7731, "bjs": 0, "tier": "entry"},
-    "ChineseDance": {"videos": 13789, "bjs": 0, "tier": "entry"},
-    "New and old": {"videos": 6238, "bjs": 0, "tier": "vip"},
-    "NudeDance": {"videos": 1229, "bjs": 0, "tier": "vip"},
-    "CrewDance": {"videos": 2810, "bjs": 0, "tier": "vip"},
-    "Short Dance": {"videos": 1141, "bjs": 0, "tier": "vip"},
-    "almighty": {"videos": 12515, "bjs": 0, "tier": "premier"},
-    "Dance clippings": {"videos": 1816, "bjs": 0, "tier": "premier"},
-    "CrewDance Full": {"videos": 242, "bjs": 0, "tier": "premier"},
-    "strage": {"videos": 1569, "bjs": 0, "tier": "premier"}
+    "Dance": {
+      "videos": 7731,
+      "bjs": 0,
+      "tier": "entry"
+    },
+    "ChineseDance": {
+      "videos": 13789,
+      "bjs": 0,
+      "tier": "entry"
+    },
+    "New and old": {
+      "videos": 6238,
+      "bjs": 0,
+      "tier": "vip"
+    },
+    "NudeDance": {
+      "videos": 1229,
+      "bjs": 0,
+      "tier": "vip"
+    },
+    "CrewDance": {
+      "videos": 2810,
+      "bjs": 0,
+      "tier": "vip"
+    },
+    "Short Dance": {
+      "videos": 1141,
+      "bjs": 0,
+      "tier": "vip"
+    },
+    "almighty": {
+      "videos": 12515,
+      "bjs": 0,
+      "tier": "premier"
+    },
+    "Dance clippings": {
+      "videos": 1816,
+      "bjs": 0,
+      "tier": "premier"
+    },
+    "CrewDance Full": {
+      "videos": 242,
+      "bjs": 0,
+      "tier": "premier"
+    },
+    "strage": {
+      "videos": 1569,
+      "bjs": 0,
+      "tier": "premier"
+    }
   },
   "sns_posts": {
     "tiktok": [
@@ -60,27 +100,6 @@
       "7490062619651624210",
       "7490000972593237255"
     ],
-    "instagram": [
-      "DUkfv_nCfw1",
-      "DMJ9i0vgDVw",
-      "DL4JdCGgPS5",
-      "DL1C3oiAyE6",
-      "DLwOuD4AESC",
-      "DLuDYZUg0_P",
-      "DLrOavVAmTV",
-      "DLY787QghiW",
-      "DLPBpAcgfVC",
-      "DLKBU-mg7hQ",
-      "DLHTP7Ug0xu",
-      "DK3uucsA58z",
-      "DKtCNSnAz-f",
-      "DKoRgO-gFxU",
-      "DKl2IpmAKPW",
-      "DKgT6YtgYLW",
-      "DKd8I8hgqJo",
-      "DKTtZP5AdiX",
-      "DKBXG2FgIVp",
-      "DJ8l391gND9"
-    ]
+    "instagram": []
   }
 }
