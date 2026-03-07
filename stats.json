@@ -1,52 +1,52 @@
 {
-  "updated_at": "2026-03-06T07:46:12.200605+00:00",
+  "updated_at": "2026-03-07T06:00:20.997186+00:00",
   "youtube": {
     "subscribers": 10800,
-    "total_views": 2199445,
-    "video_count": 255,
+    "total_views": 2210081,
+    "video_count": 257,
     "latest_videos": [
+      {
+        "id": "Ok6Z8jGjT9g",
+        "title": "【KoreanBJ】PandaClass 판다클래스 2026.3.1 Dance Show",
+        "thumbnail": "https://i.ytimg.com/vi/Ok6Z8jGjT9g/mqdefault.jpg",
+        "published_at": "2026-03-06"
+      },
+      {
+        "id": "v_LPeDpIheM",
+        "title": "MScrew33 MSCrew MS크루2026.1.23 dance 15/30 #shorts",
+        "thumbnail": "https://i.ytimg.com/vi/v_LPeDpIheM/mqdefault.jpg",
+        "published_at": "2026-03-06"
+      },
       {
         "id": "OoNMmQlhfw8",
         "title": "새봄♡dbzala Ultimate Hip Dance in a Maid Outfit! 🍑 | Dance Medley 💃",
         "thumbnail": "https://i.ytimg.com/vi/OoNMmQlhfw8/mqdefault.jpg",
         "published_at": "2026-03-05"
-      },
-      {
-        "id": "iEr2nddRfrs",
-        "title": "MScrew33 MSCrew MS크루2026.1.23 dance 14/30 #shorts",
-        "thumbnail": "https://i.ytimg.com/vi/iEr2nddRfrs/mqdefault.jpg",
-        "published_at": "2026-03-05"
-      },
-      {
-        "id": "PHdpRtGsvrE",
-        "title": "MScrew33 MSCrew MS크루2026.1.23 dance 15/30 #shorts",
-        "thumbnail": "https://i.ytimg.com/vi/PHdpRtGsvrE/mqdefault.jpg",
-        "published_at": "2026-03-05"
       }
     ]
   },
   "telegram": {
-    "members": 351,
-    "total_videos": 61731,
-    "free_videos": 1400
+    "members": 361,
+    "total_videos": 64177,
+    "free_videos": 1401
   },
   "totals": {
-    "videos": 26807,
-    "bjs": 401
+    "videos": 26875,
+    "bjs": 402
   },
   "channels": {
     "Dance": {
-      "videos": 8913,
+      "videos": 9437,
       "bjs": 0,
       "tier": "entry"
     },
     "ChineseDance": {
-      "videos": 17188,
+      "videos": 17796,
       "bjs": 0,
       "tier": "entry"
     },
     "New and old": {
-      "videos": 8666,
+      "videos": 9028,
       "bjs": 0,
       "tier": "vip"
     },
@@ -61,22 +61,22 @@
       "tier": "vip"
     },
     "Short Dance": {
-      "videos": 1243,
+      "videos": 1461,
       "bjs": 0,
       "tier": "vip"
     },
     "almighty": {
-      "videos": 15913,
+      "videos": 16509,
       "bjs": 0,
       "tier": "premier"
     },
     "Dance clippings": {
-      "videos": 2207,
+      "videos": 2332,
       "bjs": 0,
       "tier": "premier"
     },
     "CrewDance Full": {
-      "videos": 270,
+      "videos": 282,
       "bjs": 0,
       "tier": "premier"
     },
